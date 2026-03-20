@@ -1,105 +1,270 @@
 <!DOCTYPE html>
 <html lang="id">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Michel Creative Studio</title>
 
-  <!-- SEO -->
-  <title>Michel Creative Studio</title>
-  <meta name="description" content="Jasa desain karakter, video AI, dan visual kreatif untuk meningkatkan branding dan penjualan Anda.">
+<style>
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Segoe UI', sans-serif;
+}
 
-  <!-- CSS -->
-  <link rel="stylesheet" href="styles.css">
+body {
+  background: #0a0a0f;
+  color: white;
+  scroll-behavior: smooth;
+}
 
+/* Glow effect */
+.glow {
+  box-shadow: 0 0 20px #6c63ff55;
+}
+
+/* Glassmorphism */
+.glass {
+  background: rgba(255,255,255,0.05);
+  backdrop-filter: blur(10px);
+  border-radius: 20px;
+  border: 1px solid rgba(255,255,255,0.1);
+}
+
+/* HERO */
+.hero {
+  text-align: center;
+  padding: 80px 20px;
+}
+
+.hero h1 {
+  font-size: 32px;
+  margin-bottom: 15px;
+}
+
+.hero p {
+  opacity: 0.7;
+  margin-bottom: 20px;
+}
+
+.btn {
+  padding: 12px 20px;
+  border-radius: 12px;
+  border: none;
+  cursor: pointer;
+  margin: 5px;
+  font-weight: bold;
+}
+
+.btn-primary {
+  background: linear-gradient(45deg, #6c63ff, #00d4ff);
+  color: black;
+}
+
+.btn-outline {
+  background: transparent;
+  border: 1px solid #6c63ff;
+  color: white;
+}
+
+/* SECTION */
+section {
+  padding: 50px 20px;
+}
+
+/* SERVICES */
+.service {
+  margin-bottom: 15px;
+  padding: 15px;
+  cursor: pointer;
+}
+
+.service h3 {
+  display: flex;
+  justify-content: space-between;
+}
+
+.service-content {
+  display: none;
+  margin-top: 10px;
+}
+
+.service.active .service-content {
+  display: block;
+}
+
+/* PORTFOLIO */
+.grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 10px;
+}
+
+.card {
+  padding: 20px;
+}
+
+/* AVATAR */
+.avatar {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  background: #6c63ff;
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  cursor:pointer;
+}
+
+.chat {
+  position: fixed;
+  bottom: 90px;
+  right: 20px;
+  background: #111;
+  padding: 10px;
+  border-radius: 10px;
+  max-width: 200px;
+  display: none;
+}
+
+/* CTA */
+.cta {
+  text-align:center;
+}
+
+footer {
+  text-align:center;
+  padding:20px;
+  opacity:0.5;
+}
+</style>
 </head>
 
 <body>
 
 <!-- HERO -->
 <section class="hero">
-  <h1 id="heroTitle">Mengubah Ide Menjadi Dampak Visual</h1>
-  <p id="heroDesc">
-    Saya membantu brand, kreator, dan bisnis tampil lebih menonjol dengan visual modern.
-  </p>
-
-  <div class="hero-btn">
-    <button onclick="scrollToSection('services')" class="btn primary">Lihat Jasa</button>
-    <button onclick="goWhatsApp()" class="btn outline">Hubungi Sekarang</button>
-  </div>
+  <h1>Mengubah Ide Menjadi Visual yang Menarik</h1>
+  <p>Saya menyediakan jasa kreatif digital untuk membantu brand dan produk tampil lebih menonjol.</p>
+  <button class="btn btn-primary" onclick="scrollToSection('jasa')">Lihat Jasa Saya</button>
+  <button class="btn btn-outline" onclick="wa()">Hubungi Sekarang</button>
 </section>
-
 
 <!-- ABOUT -->
-<section class="about glass">
-  <h2>Tentang Saya</h2>
-  <p id="aboutText">
-    Kreator digital yang fokus pada kualitas, kecepatan, dan visual premium.
-  </p>
-</section>
-
-
-<!-- SERVICES -->
-<section id="services">
-  <h2>Jasa Saya</h2>
-
-  <div id="servicesContainer">
-    <!-- Diisi oleh script.js dari data.js -->
+<section>
+  <div class="glass card">
+    <h2>Tentang Saya</h2>
+    <p>Saya kreator digital yang fokus pada visual modern, cepat, dan berkualitas tinggi. Siap membantu brand dan ide Anda jadi lebih hidup.</p>
   </div>
 </section>
 
+<!-- SERVICES -->
+<section id="jasa">
+  <h2>Jasa Saya</h2>
+
+  <div class="service glass" onclick="toggle(this)">
+    <h3>Character Design <span>$25+</span></h3>
+    <div class="service-content">
+      <p>Karakter unik untuk branding dan konten.</p>
+      <button onclick="wa()">Pesan Sekarang</button>
+    </div>
+  </div>
+
+  <div class="service glass" onclick="toggle(this)">
+    <h3>Video Klip AI <span>$40+</span></h3>
+    <div class="service-content">
+      <p>Video kreatif berbasis AI yang sinematik.</p>
+      <button onclick="wa()">Pesan Sekarang</button>
+    </div>
+  </div>
+
+  <div class="service glass" onclick="toggle(this)">
+    <h3>Video Iklan AI <span>$50+</span></h3>
+    <div class="service-content">
+      <p>Iklan modern yang menarik perhatian.</p>
+      <button onclick="wa()">Pesan Sekarang</button>
+    </div>
+  </div>
+
+  <div class="service glass" onclick="toggle(this)">
+    <h3>Desain Kaos <span>$20+</span></h3>
+    <div class="service-content">
+      <p>Desain kaos unik dan siap jual.</p>
+      <button onclick="wa()">Pesan Sekarang</button>
+    </div>
+  </div>
+
+</section>
 
 <!-- PORTFOLIO -->
 <section>
   <h2>Portfolio</h2>
-  <div class="grid" id="portfolioContainer"></div>
+  <div class="grid">
+    <div class="glass card">Karya 1</div>
+    <div class="glass card">Karya 2</div>
+    <div class="glass card">Karya 3</div>
+    <div class="glass card">Karya 4</div>
+  </div>
 </section>
-
 
 <!-- TESTIMONI -->
 <section>
   <h2>Testimoni</h2>
-  <div id="testimonialsContainer"></div>
+  <div class="glass card">"Keren banget hasilnya!"</div>
 </section>
-
 
 <!-- CTA -->
 <section class="cta">
   <h2>Siap Mewujudkan Ide Anda?</h2>
-  <button class="btn primary" onclick="goWhatsApp()">Mulai Sekarang</button>
+  <button class="btn btn-primary" onclick="wa()">Mulai Sekarang</button>
 </section>
-
 
 <!-- CONTACT -->
 <section>
   <h2>Kontak</h2>
-
-  <div class="contact">
-    <button class="btn primary" onclick="goWhatsApp()">WhatsApp</button>
-
-    <div class="socials">
-      <a id="igLink" target="_blank">Instagram</a>
-      <a id="ttLink" target="_blank">TikTok</a>
-      <a id="fbLink" target="_blank">Facebook</a>
-      <a id="lynkLink" target="_blank">Lynk</a>
-    </div>
-  </div>
+  <button class="btn btn-primary" onclick="wa()">WhatsApp</button>
 </section>
 
-
-<!-- FOOTER -->
 <footer>
-  <p id="footerText">© 2026 Michel Creative Studio</p>
+  © 2026 Michel Creative Studio
 </footer>
-
 
 <!-- AVATAR -->
 <div class="avatar" onclick="toggleChat()">🤖</div>
-<div class="chat" id="chatBox"></div>
+<div class="chat" id="chatBox">Halo! Lagi cari jasa kreatif? 👀</div>
 
+<script>
+function toggle(el){
+  el.classList.toggle("active");
+}
 
-<!-- SCRIPT -->
-<script src="data.js"></script>
-<script src="script.js"></script>
+function wa(){
+  window.open("https://wa.me/6283181216914");
+}
+
+function scrollToSection(id){
+  document.getElementById(id).scrollIntoView();
+}
+
+/* Avatar chat */
+let messages = [
+  "Halo! Lagi cari jasa kreatif? 👀",
+  "Coba cek bagian jasa ya 🔥",
+  "Kalau cocok langsung klik WhatsApp 😉"
+];
+let i = 0;
+
+function toggleChat(){
+  let box = document.getElementById("chatBox");
+  box.style.display = "block";
+  box.innerText = messages[i];
+  i = (i + 1) % messages.length;
+}
+</script>
 
 </body>
 </html>
