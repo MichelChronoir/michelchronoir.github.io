@@ -1,346 +1,105 @@
-"<!DOCTYPE html>
-<html lang=\"en\">
+<!DOCTYPE html>
+<html lang="id">
 <head>
-    <meta charset=\"UTF-8\">
-    <meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\">
-    <meta name=\"description\" content=\"Michel Creative Studio - Professional creative services for character design, AI video production, and T-shirt design\">
-    <title>Michel Creative Studio - Turning Ideas Into Visual Impact</title>
-    <link rel=\"stylesheet\" href=\"styles.css\">
-    <link rel=\"preconnect\" href=\"https://fonts.googleapis.com\">
-    <link rel=\"preconnect\" href=\"https://fonts.gstatic.com\" crossorigin>
-    <link href=\"https://fonts.googleapis.com/css2?family=Kode+Mono:wght@400;500;600;700&display=swap\" rel=\"stylesheet\">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <!-- SEO -->
+  <title>Michel Creative Studio</title>
+  <meta name="description" content="Jasa desain karakter, video AI, dan visual kreatif untuk meningkatkan branding dan penjualan Anda.">
+
+  <!-- CSS -->
+  <link rel="stylesheet" href="styles.css">
+
 </head>
+
 <body>
-    <!-- Header -->
-    <header class=\"dark-header\" id=\"header\">
-        <div class=\"header-content\">
-            <div class=\"logo-container\" onclick=\"scrollToSection('hero')\">
-                <span class=\"logo-text\" id=\"logo-text\"></span>
-            </div>
 
-            <!-- Desktop Navigation -->
-            <nav class=\"dark-nav desktop-nav\">
-                <button onclick=\"scrollToSection('services')\" class=\"dark-nav-link\">Services</button>
-                <button onclick=\"scrollToSection('portfolio')\" class=\"dark-nav-link\">Portfolio</button>
-                <button onclick=\"scrollToSection('testimonials')\" class=\"dark-nav-link\">Testimonials</button>
-                <button onclick=\"scrollToSection('contact')\" class=\"dark-nav-link\">Contact</button>
-                <a href=\"#\" id=\"header-cta\" target=\"_blank\" rel=\"noopener noreferrer\" class=\"btn-primary-small\">
-                    Get Started
-                </a>
-            </nav>
+<!-- HERO -->
+<section class="hero">
+  <h1 id="heroTitle">Mengubah Ide Menjadi Dampak Visual</h1>
+  <p id="heroDesc">
+    Saya membantu brand, kreator, dan bisnis tampil lebih menonjol dengan visual modern.
+  </p>
 
-            <!-- Mobile Menu Button -->
-            <button class=\"mobile-menu-btn\" onclick=\"toggleMobileMenu()\">
-                <svg class=\"menu-icon\" width=\"24\" height=\"24\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\">
-                    <line x1=\"3\" y1=\"12\" x2=\"21\" y2=\"12\"></line>
-                    <line x1=\"3\" y1=\"6\" x2=\"21\" y2=\"6\"></line>
-                    <line x1=\"3\" y1=\"18\" x2=\"21\" y2=\"18\"></line>
-                </svg>
-                <svg class=\"close-icon\" width=\"24\" height=\"24\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" style=\"display: none;\">
-                    <line x1=\"18\" y1=\"6\" x2=\"6\" y2=\"18\"></line>
-                    <line x1=\"6\" y1=\"6\" x2=\"18\" y2=\"18\"></line>
-                </svg>
-            </button>
-        </div>
+  <div class="hero-btn">
+    <button onclick="scrollToSection('services')" class="btn primary">Lihat Jasa</button>
+    <button onclick="goWhatsApp()" class="btn outline">Hubungi Sekarang</button>
+  </div>
+</section>
 
-        <!-- Mobile Navigation -->
-        <div class=\"mobile-nav\" id=\"mobile-nav\" style=\"display: none;\">
-            <button onclick=\"scrollToSection('services')\" class=\"mobile-nav-link\">Services</button>
-            <button onclick=\"scrollToSection('portfolio')\" class=\"mobile-nav-link\">Portfolio</button>
-            <button onclick=\"scrollToSection('testimonials')\" class=\"mobile-nav-link\">Testimonials</button>
-            <button onclick=\"scrollToSection('contact')\" class=\"mobile-nav-link\">Contact</button>
-            <a href=\"#\" id=\"mobile-cta\" target=\"_blank\" rel=\"noopener noreferrer\" class=\"btn-primary-small mobile-cta\">
-                Get Started
-            </a>
-        </div>
-    </header>
 
-    <!-- Hero Section -->
-    <section id=\"hero\" class=\"hero-section\">
-        <div class=\"hero-background\">
-            <img src=\"https://images.unsplash.com/photo-1763927898324-f666a225c8be?crop=entropy&cs=srgb&fm=jpg&ixid=M3w4NTYxODF8MHwxfHNlYXJjaHwzfHxmdXR1cmlzdGljJTIwZGlnaXRhbCUyMGNyZWF0aXZpdHl8ZW58MHx8fHwxNzczOTk0OTgzfDA&ixlib=rb-4.1.0&q=85\"
-                alt=\"Creative Background\"
-                class=\"hero-bg-image\">
-            <div class=\"hero-overlay\"></div>
-        </div>
-        
-        <div class=\"hero-content\">
-            <div class=\"hero-badge\">
-                <svg width=\"16\" height=\"16\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\">
-                    <path d=\"M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z\"/>
-                </svg>
-                <span>Professional Creative Services</span>
-            </div>
-            
-            <h1 class=\"hero-title\" id=\"hero-title\"></h1>
-            
-            <p class=\"hero-description\">
-                From character design to AI-powered video production, we transform your creative vision 
-                into stunning visual reality. Elevate your brand with professional designs that captivate and convert.
-            </p>
-            
-            <div class=\"hero-cta-group\">
-                <button onclick=\"scrollToSection('services')\" class=\"btn-primary hero-btn\">
-                    Explore Services
-                    <svg width=\"20\" height=\"20\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\">
-                        <line x1=\"5\" y1=\"12\" x2=\"19\" y2=\"12\"></line>
-                        <polyline points=\"12 5 19 12 12 19\"></polyline>
-                    </svg>
-                </button>
-                <a href=\"#\" id=\"hero-contact-btn\" target=\"_blank\" rel=\"noopener noreferrer\" class=\"btn-secondary hero-btn\">
-                    Contact Us
-                </a>
-            </div>
+<!-- ABOUT -->
+<section class="about glass">
+  <h2>Tentang Saya</h2>
+  <p id="aboutText">
+    Kreator digital yang fokus pada kualitas, kecepatan, dan visual premium.
+  </p>
+</section>
 
-            <div class=\"hero-stats\">
-                <div class=\"stat-item\">
-                    <div class=\"stat-number\">500+</div>
-                    <div class=\"stat-label\">Projects Completed</div>
-                </div>
-                <div class=\"stat-item\">
-                    <div class=\"stat-number\">200+</div>
-                    <div class=\"stat-label\">Happy Clients</div>
-                </div>
-                <div class=\"stat-item\">
-                    <div class=\"stat-number\">4.9/5</div>
-                    <div class=\"stat-label\">Client Rating</div>
-                </div>
-            </div>
-        </div>
-    </section>
 
-    <!-- Services Section -->
-    <section id=\"services\" class=\"services-section\">
-        <div class=\"section-container\">
-            <div class=\"section-header\">
-                <h2 class=\"section-title\">Our Services</h2>
-                <p class=\"section-description\">
-                    Professional creative solutions tailored to your needs. 
-                    Click on any service to explore packages and pricing.
-                </p>
-            </div>
+<!-- SERVICES -->
+<section id="services">
+  <h2>Jasa Saya</h2>
 
-            <div class=\"services-grid\" id=\"services-grid\">
-                <!-- Services will be rendered here by JavaScript -->
-            </div>
-        </div>
-    </section>
+  <div id="servicesContainer">
+    <!-- Diisi oleh script.js dari data.js -->
+  </div>
+</section>
 
-    <!-- Portfolio Section -->
-    <section id=\"portfolio\" class=\"portfolio-section\">
-        <div class=\"section-container\">
-            <div class=\"section-header\">
-                <h2 class=\"section-title\">Our Portfolio</h2>
-                <p class=\"section-description\">
-                    Explore our latest creative projects and see the quality we deliver
-                </p>
-            </div>
 
-            <div class=\"portfolio-grid\" id=\"portfolio-grid\">
-                <!-- Portfolio items will be rendered here by JavaScript -->
-            </div>
-        </div>
-    </section>
+<!-- PORTFOLIO -->
+<section>
+  <h2>Portfolio</h2>
+  <div class="grid" id="portfolioContainer"></div>
+</section>
 
-    <!-- Testimonials Section -->
-    <section id=\"testimonials\" class=\"testimonials-section\">
-        <div class=\"section-container\">
-            <div class=\"section-header\">
-                <h2 class=\"section-title\">What Clients Say</h2>
-                <p class=\"section-description\">
-                    Don't just take our word for it - hear from our satisfied clients
-                </p>
-            </div>
 
-            <div class=\"testimonials-carousel\">
-                <button class=\"carousel-btn prev\" onclick=\"prevTestimonial()\">
-                    <svg width=\"24\" height=\"24\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\">
-                        <polyline points=\"15 18 9 12 15 6\"></polyline>
-                    </svg>
-                </button>
+<!-- TESTIMONI -->
+<section>
+  <h2>Testimoni</h2>
+  <div id="testimonialsContainer"></div>
+</section>
 
-                <div class=\"testimonial-card-container\">
-                    <div class=\"testimonial-track\" id=\"testimonial-track\">
-                        <!-- Testimonials will be rendered here by JavaScript -->
-                    </div>
-                </div>
 
-                <button class=\"carousel-btn next\" onclick=\"nextTestimonial()\">
-                    <svg width=\"24\" height=\"24\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\">
-                        <polyline points=\"9 18 15 12 9 6\"></polyline>
-                    </svg>
-                </button>
-            </div>
+<!-- CTA -->
+<section class="cta">
+  <h2>Siap Mewujudkan Ide Anda?</h2>
+  <button class="btn primary" onclick="goWhatsApp()">Mulai Sekarang</button>
+</section>
 
-            <div class=\"carousel-dots\" id=\"testimonial-dots\">
-                <!-- Dots will be rendered here by JavaScript -->
-            </div>
-        </div>
-    </section>
 
-    <!-- CTA Section -->
-    <section class=\"cta-section\">
-        <div class=\"cta-content\">
-            <div class=\"cta-badge\">
-                <svg width=\"16\" height=\"16\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\">
-                    <path d=\"M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z\"/>
-                </svg>
-                <span>Ready to Start?</span>
-            </div>
-            
-            <h2 class=\"cta-title\">
-                Let's Bring Your Vision to Life
-            </h2>
-            
-            <p class=\"cta-description\">
-                Join hundreds of satisfied clients who trusted us with their creative projects. 
-                Get a free consultation and discover how we can help you stand out.
-            </p>
-            
-            <div class=\"cta-buttons\">
-                <a href=\"#\" id=\"cta-start-btn\" target=\"_blank\" rel=\"noopener noreferrer\" class=\"btn-primary cta-btn\">
-                    Start Your Project
-                    <svg width=\"20\" height=\"20\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\">
-                        <line x1=\"5\" y1=\"12\" x2=\"19\" y2=\"12\"></line>
-                        <polyline points=\"12 5 19 12 12 19\"></polyline>
-                    </svg>
-                </a>
-                <button onclick=\"scrollToSection('portfolio')\" class=\"btn-secondary cta-btn\">
-                    View Our Work
-                </button>
-            </div>
+<!-- CONTACT -->
+<section>
+  <h2>Kontak</h2>
 
-            <div class=\"cta-trust-signals\">
-                <div class=\"trust-item\">
-                    <div class=\"trust-icon\">✓</div>
-                    <span>Fast Turnaround</span>
-                </div>
-                <div class=\"trust-item\">
-                    <div class=\"trust-icon\">✓</div>
-                    <span>Unlimited Revisions</span>
-                </div>
-                <div class=\"trust-item\">
-                    <div class=\"trust-icon\">✓</div>
-                    <span>Money-Back Guarantee</span>
-                </div>
-            </div>
-        </div>
-    </section>
+  <div class="contact">
+    <button class="btn primary" onclick="goWhatsApp()">WhatsApp</button>
 
-    <!-- Footer -->
-    <footer id=\"contact\" class=\"footer\">
-        <div class=\"footer-content\">
-            <div class=\"footer-grid\">
-                <!-- Brand Section -->
-                <div class=\"footer-section\">
-                    <h3 class=\"footer-brand\" id=\"footer-brand\"></h3>
-                    <p class=\"footer-tagline\" id=\"footer-tagline\"></p>
-                    <p class=\"footer-description\">
-                        Professional creative services for brands, businesses, and individuals 
-                        looking to make a visual impact.
-                    </p>
-                </div>
-
-                <!-- Quick Links -->
-                <div class=\"footer-section\">
-                    <h4 class=\"footer-heading\">Quick Links</h4>
-                    <ul class=\"footer-links\">
-                        <li><button onclick=\"scrollToSection('services')\">Services</button></li>
-                        <li><button onclick=\"scrollToSection('portfolio')\">Portfolio</button></li>
-                        <li><button onclick=\"scrollToSection('testimonials')\">Testimonials</button></li>
-                        <li><button onclick=\"scrollToSection('hero')\">About</button></li>
-                    </ul>
-                </div>
-
-                <!-- Services -->
-                <div class=\"footer-section\">
-                    <h4 class=\"footer-heading\">Services</h4>
-                    <ul class=\"footer-links\">
-                        <li><button>Character Design</button></li>
-                        <li><button>AI Video Clip</button></li>
-                        <li><button>AI Video Ads</button></li>
-                        <li><button>T-Shirt Design</button></li>
-                    </ul>
-                </div>
-
-                <!-- Contact -->
-                <div class=\"footer-section\">
-                    <h4 class=\"footer-heading\">Get In Touch</h4>
-                    <div class=\"footer-contact\">
-                        <a href=\"#\" id=\"footer-whatsapp\" target=\"_blank\" rel=\"noopener noreferrer\" class=\"contact-link\">
-                            <svg width=\"20\" height=\"20\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\">
-                                <path d=\"M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z\"></path>
-                            </svg>
-                            <span>WhatsApp</span>
-                        </a>
-                        <a href=\"#\" id=\"footer-email\" class=\"contact-link\">
-                            <svg width=\"20\" height=\"20\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\">
-                                <path d=\"M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z\"></path>
-                                <polyline points=\"22,6 12,13 2,6\"></polyline>
-                            </svg>
-                            <span id=\"footer-email-text\"></span>
-                        </a>
-                    </div>
-
-                    <div class=\"footer-social\">
-                        <a href=\"#\" id=\"footer-instagram\" target=\"_blank\" rel=\"noopener noreferrer\" class=\"social-link\">
-                            <svg width=\"20\" height=\"20\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\">
-                                <rect x=\"2\" y=\"2\" width=\"20\" height=\"20\" rx=\"5\" ry=\"5\"></rect>
-                                <path d=\"M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z\"></path>
-                                <line x1=\"17.5\" y1=\"6.5\" x2=\"17.51\" y2=\"6.5\"></line>
-                            </svg>
-                        </a>
-                        <a href=\"#\" id=\"footer-twitter\" target=\"_blank\" rel=\"noopener noreferrer\" class=\"social-link\">
-                            <svg width=\"20\" height=\"20\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\">
-                                <path d=\"M23 3a10.9 10.9 0 0 1-3.14 1.53 4.48 4.48 0 0 0-7.86 3v1A10.66 10.66 0 0 1 3 4s-4 9 5 13a11.64 11.64 0 0 1-7 2c9 5 20 0 20-11.5a4.5 4.5 0 0 0-.08-.83A7.72 7.72 0 0 0 23 3z\"></path>
-                            </svg>
-                        </a>
-                        <a href=\"#\" id=\"footer-linkedin\" target=\"_blank\" rel=\"noopener noreferrer\" class=\"social-link\">
-                            <svg width=\"20\" height=\"20\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\">
-                                <path d=\"M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z\"></path>
-                                <rect x=\"2\" y=\"9\" width=\"4\" height=\"12\"></rect>
-                                <circle cx=\"4\" cy=\"4\" r=\"2\"></circle>
-                            </svg>
-                        </a>
-                    </div>
-                </div>
-            </div>
-
-            <div class=\"footer-bottom\">
-                <p>&copy; <span id=\"current-year\"></span> <span id=\"footer-copyright\"></span>. All rights reserved.</p>
-                <div class=\"footer-bottom-links\">
-                    <button>Privacy Policy</button>
-                    <button>Terms of Service</button>
-                </div>
-            </div>
-        </div>
-    </footer>
-
-    <!-- Avatar Guide -->
-    <div class=\"avatar-guide\" id=\"avatar-guide\" style=\"display: none;\">
-        <!-- Chat Bubble -->
-        <div class=\"avatar-bubble\" id=\"avatar-bubble\" style=\"display: none;\">
-            <button class=\"bubble-close\" onclick=\"closeAvatarBubble()\">
-                <svg width=\"16\" height=\"16\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\">
-                    <line x1=\"18\" y1=\"6\" x2=\"6\" y2=\"18\"></line>
-                    <line x1=\"6\" y1=\"6\" x2=\"18\" y2=\"18\"></line>
-                </svg>
-            </button>
-            <p id=\"avatar-message\"></p>
-        </div>
-
-        <!-- Avatar -->
-        <div class=\"avatar-container\" onclick=\"toggleAvatarBubble()\">
-            <div class=\"avatar-pulse\"></div>
-            <img src=\"https://images.unsplash.com/photo-1767716134877-82b74809e431?crop=entropy&cs=srgb&fm=jpg&ixid=M3w4NjA1NTJ8MHwxfHNlYXJjaHw0fHxmcmllbmRseSUyMEFJJTIwcm9ib3R8ZW58MHx8fHwxNzczOTk0OTg3fDA&ixlib=rb-4.1.0&q=85\"
-                alt=\"AI Guide\"
-                class=\"avatar-image\">
-        </div>
+    <div class="socials">
+      <a id="igLink" target="_blank">Instagram</a>
+      <a id="ttLink" target="_blank">TikTok</a>
+      <a id="fbLink" target="_blank">Facebook</a>
+      <a id="lynkLink" target="_blank">Lynk</a>
     </div>
+  </div>
+</section>
 
-    <!-- Scripts -->
-    <script src=\"data.js\"></script>
-    <script src=\"script.js\"></script>
+
+<!-- FOOTER -->
+<footer>
+  <p id="footerText">© 2026 Michel Creative Studio</p>
+</footer>
+
+
+<!-- AVATAR -->
+<div class="avatar" onclick="toggleChat()">🤖</div>
+<div class="chat" id="chatBox"></div>
+
+
+<!-- SCRIPT -->
+<script src="data.js"></script>
+<script src="script.js"></script>
+
 </body>
 </html>
-"
