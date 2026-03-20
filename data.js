@@ -1,16 +1,14 @@
-"// Mock data for Michel Creative Studio
-
 const businessInfo = {
-  name: \"Michel Creative Studio\",
-  tagline: \"Turning Ideas Into Visual Impact\",
+  nama: \"Michel Creative Studio\",
+  slogan: \"Mengubah ide menjadi visual\",
   whatsapp: \"083181216914\",
   whatsappLink: \"https://wa.me/6283181216914\",
-  email: \"hello@michelcreative.studio\",
+  email: \"michelchronoir@gmail\",
   social: {
-    instagram: \"#\",
+    instagram: \"https://www.instagram.com/michel_chronoir?igsh=MWV0NGppZTluaW5wdA==\",
     twitter: \"#\",
     linkedin: \"#\",
-    behance: \"#\"
+    facebook: \"https://www.facebook.com/MhmdIdriskamali?mibextid=rS40aB7S9Ucbxw6v\"
   }
 };
 
