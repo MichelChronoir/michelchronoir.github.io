@@ -1,37 +1,242 @@
 <!DOCTYPE html>
 <html lang="id">
 <head>
-  <meta charset="UTF-8">
-  <title>Website Emi</title>
-  <style>
-    body {
-      font-family: Arial;
-      background: #0f172a;
-      color: white;
-      text-align: center;
-      padding: 50px;
-    }
-    .card {
-      background: #1e293b;
-      padding: 30px;
-      border-radius: 20px;
-      box-shadow: 0 0 20px rgba(0,0,0,0.5);
-    }
-    button {
-      padding: 10px 20px;
-      border: none;
-      border-radius: 10px;
-      background: #38bdf8;
-      color: black;
-      cursor: pointer;
-    }
-  </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Jasa Kreatif Digital</title>
+
+<style>
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Segoe UI', sans-serif;
+}
+
+body {
+  background: #0b0f1a;
+  color: white;
+  scroll-behavior: smooth;
+}
+
+/* HERO */
+.hero {
+  text-align: center;
+  padding: 80px 20px;
+}
+
+.hero h1 {
+  font-size: 2rem;
+  background: linear-gradient(90deg, #7c3aed, #38bdf8);
+  -webkit-background-clip: text;
+  color: transparent;
+}
+
+.hero p {
+  margin: 15px 0;
+  opacity: 0.8;
+}
+
+.btn {
+  padding: 10px 20px;
+  border-radius: 10px;
+  border: none;
+  margin: 5px;
+  cursor: pointer;
+  background: linear-gradient(90deg, #7c3aed, #38bdf8);
+  color: white;
+}
+
+/* GLASS CARD */
+.glass {
+  background: rgba(255,255,255,0.05);
+  backdrop-filter: blur(10px);
+  padding: 20px;
+  border-radius: 15px;
+  margin: 15px;
+}
+
+/* SERVICES */
+.services {
+  padding: 40px 20px;
+}
+
+.card {
+  transition: 0.3s;
+}
+
+.card:hover {
+  transform: scale(1.03);
+}
+
+.expand {
+  display: none;
+  margin-top: 10px;
+}
+
+/* PORTFOLIO */
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit,minmax(120px,1fr));
+  gap: 10px;
+  padding: 20px;
+}
+
+.grid div {
+  height: 100px;
+  background: #1e293b;
+  border-radius: 10px;
+}
+
+/* AVATAR */
+.avatar {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  background: #7c3aed;
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  cursor:pointer;
+}
+
+.chat {
+  position: fixed;
+  bottom: 90px;
+  right: 20px;
+  background: #1e293b;
+  padding: 10px;
+  border-radius: 10px;
+  display:none;
+  max-width:200px;
+}
+
+/* CTA */
+.cta {
+  text-align:center;
+  padding:50px 20px;
+}
+
+/* FOOTER */
+footer {
+  text-align:center;
+  padding:20px;
+  opacity:0.6;
+}
+</style>
+
 </head>
+
 <body>
-  <div class="card">
-    <h1>Halo, ini website aku 😎</h1>
-    <p>Aku sedang membangun sesuatu yang keren...</p>
-    <button onclick="alert('Hai juga 😏')">Klik aku</button>
+
+<!-- HERO -->
+<section class="hero">
+  <h1>Mengubah Ide Menjadi Visual yang Menarik</h1>
+  <p>Saya menyediakan jasa kreatif digital untuk membantu brand dan cerita Anda tampil lebih menonjol.</p>
+  <button class="btn">Lihat Jasa Saya</button>
+  <button class="btn">Hubungi Sekarang</button>
+</section>
+
+<!-- ABOUT -->
+<section class="glass">
+  <h2>Tentang Saya</h2>
+  <p>Saya kreator digital yang fokus pada kualitas, kecepatan, dan fleksibilitas. Siap membantu ide Anda menjadi visual yang powerful.</p>
+</section>
+
+<!-- SERVICES -->
+<section class="services">
+  <h2>Jasa Saya</h2>
+
+  <div class="glass card" onclick="toggle(this)">
+    <h3>Character Design - $25</h3>
+    <div class="expand">
+      <p>Desain karakter unik untuk branding dan konten.</p>
+      <button class="btn">Pesan Sekarang</button>
+    </div>
   </div>
+
+  <div class="glass card" onclick="toggle(this)">
+    <h3>Video Klip AI - $40</h3>
+    <div class="expand">
+      <p>Video kreatif berbasis AI dengan visual menarik.</p>
+      <button class="btn">Pesan Sekarang</button>
+    </div>
+  </div>
+
+  <div class="glass card" onclick="toggle(this)">
+    <h3>Video Iklan AI - $50</h3>
+    <div class="expand">
+      <p>Iklan modern untuk meningkatkan penjualan.</p>
+      <button class="btn">Pesan Sekarang</button>
+    </div>
+  </div>
+
+  <div class="glass card" onclick="toggle(this)">
+    <h3>T-Shirt Design - $20</h3>
+    <div class="expand">
+      <p>Desain kaos unik untuk brand Anda.</p>
+<a href="https://wa.me/6283181216914" target="_blank">
+<button class="btn">Pesan Sekarang</button>
+</a >
+    </div>
+  </div>
+
+</section>
+
+<!-- PORTFOLIO -->
+<section>
+  <h2 style="text-align:center;">Portfolio</h2>
+  <div class="grid">
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+  </div>
+</section>
+
+<!-- TESTIMONI -->
+<section class="glass">
+  <h2>Testimoni</h2>
+  <p>"Keren banget hasilnya!"</p>
+  <p>"Cepat dan profesional!"</p>
+</section>
+
+<!-- CTA -->
+<section class="cta">
+  <h2>Siap Mewujudkan Ide Anda?</h2>
+  <button class="btn">Mulai Sekarang</button>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  © 2026 Jasa Kreatif
+</footer>
+
+<!-- AVATAR -->
+<div class="avatar" onclick="chatToggle()">💬</div>
+<div class="chat" id="chatBox">
+  Halo! Lagi cari jasa kreatif? 👀
+</div>
+
+<script>
+function toggle(el){
+  let content = el.querySelector(".expand");
+  content.style.display = content.style.display === "block" ? "none" : "block";
+}
+
+function chatToggle(){
+  let chat = document.getElementById("chatBox");
+  chat.style.display = chat.style.display === "block" ? "none" : "block";
+}
+
+/* Auto chat message */
+setTimeout(()=>{
+  document.getElementById("chatBox").style.display = "block";
+},2000);
+</script>
+
 </body>
 </html>
