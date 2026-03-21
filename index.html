@@ -72,7 +72,7 @@
             align-items: center;
             justify-content: center;
             position: relative;
-            padding: 100px 0 50px;
+            padding: 120px 0 60px;
         }
 
         .hero-content {
@@ -89,7 +89,7 @@
 
         .hero h1 {
             font-family: 'Syne', sans-serif;
-            font-size: clamp(2.5rem, 7vw, 4.5rem);
+            font-size: clamp(2.5rem, 7vw, 4.2rem);
             line-height: 1.1;
             font-weight: 800;
             margin-bottom: 1.5rem;
@@ -131,16 +131,25 @@
 
         .btn-outline:hover { background: rgba(255,255,255,0.1); }
 
+        /* Gaya Foto Hero Michellyn */
+        .hero-image {
+            position: relative;
+        }
+        
         .hero-image img {
             width: 100%;
+            max-width: 450px;
             border-radius: 30px;
-            box-shadow: 0 20px 40px rgba(0,0,0,0.5);
+            /* Tambahan efek bayangan dan sedikit vignette agar elegan */
+            box-shadow: 0 20px 50px rgba(0,0,0,0.6), inset 0 0 50px rgba(0,0,0,0.5);
             animation: float 6s ease-in-out infinite;
+            display: block;
+            margin: 0 auto;
         }
 
         @keyframes float {
             0%, 100% { transform: translateY(0); }
-            50% { transform: translateY(-20px); }
+            50% { transform: translateY(-15px); }
         }
 
         /* --- SERVICES (EXPANDABLE) --- */
@@ -249,7 +258,7 @@
                     </div>
                 </div>
                 <div class="hero-image" data-aos="fade-left">
-                    <img src="https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?q=80&w=2564&auto=format&fit=crop" alt="Hero Art">
+                    <img src="michellyn.png" alt="Michellyn - Creative Services">
                 </div>
             </div>
         </section>
@@ -260,7 +269,7 @@
                 
                 <div class="service-card glass" data-aos="fade-up">
                     <div class="service-header" onclick="toggleService(this)">
-                        <img src="https://images.unsplash.com/photo-1561214115-f2f119ce10aa?w=200" alt="Character">
+                        <img src="Image_th90lrth90lrth90.png" alt="Character">
                         <div class="service-title">
                             <h3>Character Design</h3>
                             <p>Mulai dari $25</p>
@@ -279,7 +288,7 @@
                                 </div>
                                 <a href="https://wa.me/6281234567890" class="btn btn-primary" style="width:100%">Pesan Sekarang</a>
                             </div>
-                            <img src="https://images.unsplash.com/photo-1561214115-f2f119ce10aa?w=600" style="width:100%; border-radius:15px;" alt="Preview">
+                            <img src="Image_th90lrth90lrth90.png" style="width:100%; border-radius:15px;" alt="Preview Character Design">
                         </div>
                     </div>
                 </div>
@@ -305,7 +314,7 @@
                                 </div>
                                 <a href="https://wa.me/6281234567890" class="btn btn-primary" style="width:100%">Pesan Sekarang</a>
                             </div>
-                            <img src="https://images.unsplash.com/photo-1536240478700-b869070f9279?w=600" style="width:100%; border-radius:15px;" alt="Preview">
+                            <img src="https://images.unsplash.com/photo-1536240478700-b869070f9279?w=600" style="width:100%; border-radius:15px;" alt="Preview Video AI">
                         </div>
                     </div>
                 </div>
