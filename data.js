@@ -1,5 +1,3 @@
-// data.js
-
 const siteData = {
     whatsappNumber: "6283181216914", // 
     
