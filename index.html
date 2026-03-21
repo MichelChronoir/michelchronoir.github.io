@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Michellyn | Next-Gen Creative AI</title>
+    <title>Michellyn | Creative AI Director</title>
     
     <link href="https://fonts.googleapis.com/css2?family=Syne:wght@700;800&family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
@@ -14,20 +14,15 @@
         :root {
             --primary: #a855f7;
             --secondary: #3b82f6;
-            --bg: #050811;
-            --card-bg: rgba(255, 255, 255, 0.02);
-            --glass-border: rgba(255, 255, 255, 0.08);
-            --text-main: #f1f5f9;
-            --text-muted: #64748b;
+            --bg: #030303;
+            --card-bg: rgba(255, 255, 255, 0.03);
+            --glass: rgba(255, 255, 255, 0.05);
+            --glass-border: rgba(255, 255, 255, 0.1);
+            --text-main: #ffffff;
+            --text-muted: #a1a1aa;
         }
 
-        /* --- CUSTOM CURSOR --- */
-        .cursor { width: 20px; height: 20px; border: 2px solid var(--primary); border-radius: 50%; position: fixed; pointer-events: none; z-index: 9999; transition: transform 0.1s ease; mix-blend-mode: difference; }
-        .cursor-follower { width: 8px; height: 8px; background: var(--secondary); border-radius: 50%; position: fixed; pointer-events: none; z-index: 9999; transition: transform 0.2s ease; }
-
-        * { margin: 0; padding: 0; box-sizing: border-box; cursor: none; } /* Cursor default dimatikan */
-        html { scroll-behavior: smooth; }
-
+        * { margin: 0; padding: 0; box-sizing: border-box; cursor: none; }
         body {
             background-color: var(--bg);
             color: var(--text-main);
@@ -35,59 +30,83 @@
             overflow-x: hidden;
         }
 
+        /* --- NOISE TEXTURE OVERLAY --- */
+        body::before {
+            content: "";
+            position: fixed; top: 0; left: 0; width: 100%; height: 100%;
+            background: url('https://grainy-gradients.vercel.app/noise.svg');
+            opacity: 0.05; pointer-events: none; z-index: 9998;
+        }
+
         .container { max-width: 1200px; margin: 0 auto; padding: 0 25px; }
 
-        /* --- NAVBAR --- */
-        nav {
-            position: fixed; top: 0; width: 100%; z-index: 1000;
-            padding: 20px 0; transition: 0.3s;
+        /* --- CUSTOM CURSOR --- */
+        .cursor { width: 10px; height: 10px; background: #fff; border-radius: 50%; position: fixed; pointer-events: none; z-index: 9999; transition: transform 0.1s; }
+        .cursor-follower { width: 40px; height: 40px; border: 1px solid var(--primary); border-radius: 50%; position: fixed; pointer-events: none; z-index: 9999; transition: transform 0.2s cubic-bezier(0.175, 0.885, 0.32, 1.275); }
+
+        /* --- BENTO GRID PORTFOLIO --- */
+        .bento-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            grid-auto-rows: 200px;
+            gap: 20px;
+            margin-top: 50px;
         }
-        nav.scrolled { background: rgba(5, 8, 17, 0.8); backdrop-filter: blur(15px); border-bottom: 1px solid var(--glass-border); padding: 15px 0; }
 
-        .nav-content { display: flex; justify-content: space-between; align-items: center; }
-        .logo { font-family: 'Syne'; font-weight: 800; font-size: 1.5rem; letter-spacing: -1px; }
-
-        /* --- HERO --- */
-        .hero { min-height: 100vh; display: flex; align-items: center; position: relative; padding-top: 80px; }
-        .hero-image img { 
-            width: 100%; max-width: 450px; border-radius: 40px; 
-            filter: grayscale(20%) contrast(110%);
-            box-shadow: 0 0 50px rgba(168, 85, 247, 0.2);
-            transition: 0.5s;
-        }
-        .hero-image img:hover { filter: grayscale(0%); transform: scale(1.02); }
-
-        /* --- SERVICE CARDS (PREMIUM LOOK) --- */
-        .service-card {
+        .bento-item {
+            position: relative;
             background: var(--card-bg);
             border: 1px solid var(--glass-border);
             border-radius: 30px;
-            margin-bottom: 20px;
-            transition: 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+            overflow: hidden;
+            transition: 0.5s;
         }
-        .service-card:hover { border-color: var(--primary); background: rgba(168, 85, 247, 0.03); transform: translateY(-5px); }
+
+        .bento-item img { width: 100%; height: 100%; object-fit: cover; opacity: 0.7; transition: 0.5s; }
+        .bento-item:hover img { opacity: 1; transform: scale(1.05); }
         
-        .feature-tag {
-            display: inline-block; padding: 5px 12px; background: rgba(168, 85, 247, 0.1);
-            color: var(--primary); border-radius: 20px; font-size: 0.75rem; font-weight: 600; margin-right: 8px;
+        .bento-1 { grid-column: span 2; grid-row: span 2; } /* Box Besar */
+        .bento-2 { grid-column: span 2; grid-row: span 1; }
+        .bento-3 { grid-column: span 1; grid-row: span 1; }
+        .bento-4 { grid-column: span 1; grid-row: span 2; }
+
+        /* --- INTERACTIVE CALCULATOR --- */
+        .calc-card {
+            background: linear-gradient(145deg, rgba(168, 85, 247, 0.05), rgba(59, 130, 246, 0.05));
+            border: 1px solid var(--glass-border);
+            border-radius: 40px;
+            padding: 40px;
+            margin: 100px 0;
+            backdrop-filter: blur(10px);
         }
 
-        /* --- TYPING ANIMATION --- */
-        .typing::after { content: '|'; animation: blink 0.7s infinite; }
-        @keyframes blink { 50% { opacity: 0; } }
+        .calc-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 30px; }
+        
+        select, input {
+            width: 100%; background: rgba(255,255,255,0.05); border: 1px solid var(--glass-border);
+            padding: 15px; border-radius: 15px; color: white; margin-top: 10px; outline: none;
+        }
 
-        /* --- AVATAR UPGRADE --- */
+        .price-display {
+            font-family: 'Syne'; font-size: 3.5rem; color: var(--primary);
+            text-shadow: 0 0 30px rgba(168, 85, 247, 0.3);
+        }
+
+        /* --- AVATAR & TYPING --- */
         .avatar-container { position: fixed; bottom: 30px; right: 30px; z-index: 9999; display: flex; flex-direction: column; align-items: flex-end; }
         .chat-bubble { 
-            background: rgba(255, 255, 255, 0.05); backdrop-filter: blur(20px);
-            border: 1px solid var(--glass-border); padding: 15px 20px;
-            border-radius: 25px 25px 5px 25px; margin-bottom: 12px;
-            font-size: 0.9rem; max-width: 250px; line-height: 1.4;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+            background: var(--glass); backdrop-filter: blur(20px); border: 1px solid var(--glass-border);
+            padding: 15px 25px; border-radius: 30px 30px 5px 30px; margin-bottom: 15px;
+            font-size: 0.95rem; max-width: 280px; box-shadow: 0 10px 40px rgba(0,0,0,0.5);
         }
+        .avatar-img { width: 80px; height: 80px; border-radius: 50%; border: 2px solid var(--primary); transition: 0.3s; }
 
-        /* --- RESPONSIVE FIX --- */
-        @media (max-width: 768px) { * { cursor: auto; } .cursor, .cursor-follower { display: none; } }
+        .btn-premium {
+            background: white; color: black; padding: 18px 35px; border-radius: 100px;
+            font-weight: 800; font-family: 'Syne'; transition: 0.3s; display: inline-block;
+        }
+        .btn-premium:hover { transform: scale(1.05); box-shadow: 0 0 30px rgba(255,255,255,0.2); }
+
     </style>
 </head>
 <body>
@@ -95,168 +114,123 @@
     <div class="cursor"></div>
     <div class="cursor-follower"></div>
 
-    <nav id="navbar">
-        <div class="container nav-content">
-            <div class="logo">MICHELLYN<span style="color:var(--primary)">.</span></div>
-            <a href="https://wa.me/6283181216914" class="btn-primary btn" style="padding: 10px 20px; font-size: 0.8rem;">GET IN TOUCH</a>
-        </div>
-    </nav>
-
     <div class="container">
-        <section class="hero">
-            <div class="hero-content" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 50px; align-items: center; width: 100%;">
-                <div data-aos="fade-right">
-                    <span style="color: var(--primary); font-weight: 700; letter-spacing: 2px; font-size: 0.8rem;">EST. 2026</span>
-                    <h1 style="font-family: 'Syne'; font-size: clamp(3rem, 8vw, 5rem); line-height: 0.9; margin: 20px 0;">
-                        CRAFTING <br><span class="gradient-text">DIGITAL MAGIC</span>
-                    </h1>
-                    <p style="color: var(--text-muted); margin-bottom: 35px; max-width: 500px; font-size: 1.1rem;">
-                        Spesialisasi dalam membangun identitas visual dan narasi sinematik yang didukung oleh teknologi kecerdasan buatan terdepan.
-                    </p>
-                    <div style="display: flex; gap: 20px;">
-                        <a href="#jasa" class="btn btn-primary">EXPLORE WORK</a>
+        <section class="hero" style="min-height: 90vh; display: flex; align-items: center; justify-content: center; text-align: center;">
+            <div data-aos="zoom-out" data-aos-duration="1500">
+                <h1 style="font-family: 'Syne'; font-size: clamp(3rem, 10vw, 7rem); line-height: 0.85; letter-spacing: -4px;">
+                    FUTURE <br> <span class="gradient-text">VISUALS</span>
+                </h1>
+                <p style="color: var(--text-muted); margin: 30px auto; max-width: 600px; font-size: 1.2rem;">
+                    Michellyn Studio menggabungkan estetika artistik dengan kecerdasan buatan untuk menciptakan standar baru dalam desain digital.
+                </p>
+                <a href="#calc" class="btn-premium">GET ESTIMATE</a>
+            </div>
+        </section>
+
+        <section id="portfolio">
+            <h2 class="section-title" data-aos="fade-up">SELECTED WORK</h2>
+            <div class="bento-grid">
+                <div class="bento-item bento-1" data-aos="fade-up">
+                    <img src="Image_th90lrth90lrth90.png" alt="Hero Project">
+                    <div style="position: absolute; bottom: 30px; left: 30px;">
+                        <span class="feature-tag" style="background: white; color: black;">FEATURED</span>
+                        <h3 style="font-family: 'Syne'; font-size: 1.5rem; margin-top: 10px;">Character Synthesis</h3>
                     </div>
                 </div>
-                <div class="hero-image" data-aos="zoom-out">
-                    <img src="michellyn.png" alt="Michellyn">
+                <div class="bento-item bento-2" data-aos="fade-up" data-aos-delay="100">
+                    <img src="michellyn.png" alt="Profile">
+                </div>
+                <div class="bento-item bento-3" data-aos="fade-up" data-aos-delay="200">
+                    <div style="padding: 30px; display: flex; align-items: center; height: 100%;">
+                        <p style="font-family: 'Syne'; font-size: 1.2rem;">"The next generation of AI Art."</p>
+                    </div>
+                </div>
+                <div class="bento-item bento-4" data-aos="fade-up" data-aos-delay="300">
+                    <video autoplay muted loop style="width: 100%; height: 100%; object-fit: cover;">
+                        <source src="Video Project 3 (2).mp4" type="video/mp4">
+                    </video>
                 </div>
             </div>
         </section>
 
-        <section id="jasa" style="padding-bottom: 100px;">
-            <h2 class="section-title" data-aos="fade-up">SELECTED <span class="gradient-text">SERVICES</span></h2>
-            
-            <div class="services-grid">
-                <div class="service-card" data-aos="fade-up">
-                    <div class="service-header" onclick="toggleService(this)" style="padding: 40px;">
-                        <img src="Image_th90lrth90lrth90.png" style="width: 100px; height: 100px; border-radius: 20px;" alt="Character">
-                        <div style="margin-left: 30px;">
-                            <div style="margin-bottom: 10px;">
-                                <span class="feature-tag">HIGH-RES</span><span class="feature-tag">CUSTOM POSES</span>
-                            </div>
-                            <h3 style="font-family: 'Syne'; font-size: 1.8rem;">Character Design</h3>
-                            <p style="color: var(--primary); font-weight: 700; margin-top: 5px;">Starting at $25</p>
-                        </div>
-                        <i class="fas fa-arrow-right toggle-icon" style="position: absolute; right: 40px; font-size: 1.5rem; opacity: 0.3;"></i>
-                    </div>
-                    <div class="service-body">
-                        <div class="service-content" style="padding: 0 40px 40px 40px;">
-                            <div style="border-top: 1px solid var(--glass-border); padding-top: 30px; display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 30px;">
-                                <div>
-                                    <p style="color: var(--text-muted);">Membangun jiwa dari ide Anda. Dari sketsa mentah hingga visual akhir yang siap digunakan untuk komersial.</p>
-                                    <div class="package-list" style="margin-top: 25px;">
-                                        <div class="package">Basic<b>$25</b></div>
-                                        <div class="package">VVIP<b>$75</b></div>
-                                    </div>
-                                </div>
-                                <img src="Image_th90lrth90lrth90.png" style="width: 100%; border-radius: 20px;" alt="Design">
-                            </div>
-                        </div>
-                    </div>
+        <section id="calc" class="calc-card" data-aos="fade-up">
+            <h2 style="font-family: 'Syne'; margin-bottom: 40px; font-size: 2.5rem;">Price <span class="gradient-text">Estimator</span></h2>
+            <div class="calc-grid">
+                <div>
+                    <label>SERVICE TYPE</label>
+                    <select id="serviceType" onchange="calculate()">
+                        <option value="25">Character Design ($25+)</option>
+                        <option value="40">AI Video Promo ($40+)</option>
+                    </select>
                 </div>
-
-                <div class="service-card" data-aos="fade-up" data-aos-delay="100">
-                    <div class="service-header" onclick="toggleService(this)" style="padding: 40px;">
-                        <div style="width: 100px; height: 100px; background: linear-gradient(45deg, #1e293b, #0f172a); border-radius: 20px; display: flex; align-items: center; justify-content: center;">
-                            <i class="fas fa-play" style="color: var(--primary); font-size: 2rem;"></i>
-                        </div>
-                        <div style="margin-left: 30px;">
-                            <div style="margin-bottom: 10px;">
-                                <span class="feature-tag">ADVERTISING</span><span class="feature-tag">GAME TRAILER</span>
-                            </div>
-                            <h3 style="font-family: 'Syne'; font-size: 1.8rem;">AI Motion Promos</h3>
-                            <p style="color: var(--primary); font-weight: 700; margin-top: 5px;">Starting at $40</p>
-                        </div>
-                        <i class="fas fa-arrow-right toggle-icon" style="position: absolute; right: 40px; font-size: 1.5rem; opacity: 0.3;"></i>
-                    </div>
-                    <div class="service-body">
-                        <div class="service-content" style="padding: 0 40px 40px 40px;">
-                            <div style="border-top: 1px solid var(--glass-border); padding-top: 30px; display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 30px;">
-                                <div>
-                                    <p style="color: var(--text-muted);">Ubah narasi produk, game, atau novel Anda menjadi klip sinematik yang menggugah emosi dengan sinkronisasi audio sempurna.</p>
-                                    <video controls style="width: 100%; margin-top: 20px; border-radius: 15px;">
-                                        <source src="Video Project 3 (2).mp4" type="video/mp4">
-                                    </video>
-                                </div>
-                                <div class="package-list" style="flex-direction: column;">
-                                    <div class="package" style="margin-bottom: 10px;">Standard Ads<b>$40</b></div>
-                                    <div class="package">Cinematic Trailer<b>$150</b></div>
-                                    <a href="https://wa.me/6283181216914" class="btn btn-primary" style="margin-top: 20px; width: 100%; justify-content: center;">BOOK PROJECT</a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+                <div>
+                    <label>QUANTITY / DURATION</label>
+                    <select id="complexity" onchange="calculate()">
+                        <option value="1">Standard (1 Unit / 15s)</option>
+                        <option value="2">Advanced (2 Units / 30s)</option>
+                        <option value="4">Premium (Grup / 60s)</option>
+                    </select>
+                </div>
+                <div style="text-align: right;">
+                    <label>ESTIMATED TOTAL</label>
+                    <div class="price-display">$<span id="totalPrice">25</span></div>
+                    <a href="https://wa.me/6283181216914" class="btn-premium" style="margin-top: 20px; font-size: 0.8rem; padding: 12px 25px;">ORDER NOW</a>
                 </div>
             </div>
         </section>
     </div>
 
     <div class="avatar-container">
-        <div class="chat-bubble"><span id="avatarChat" class="typing"></span></div>
-        <img src="pose1.png" id="avatarImg" class="avatar-img" onclick="document.getElementById('jasa').scrollIntoView()">
+        <div class="chat-bubble"><span id="avatarChat"></span></div>
+        <img src="pose1.png" id="avatarImg" class="avatar-img">
     </div>
 
     <script>
-        AOS.init({ duration: 1000, once: true });
+        AOS.init();
 
-        // --- CUSTOM CURSOR LOGIC ---
+        // --- CURSOR LOGIC ---
         const cursor = document.querySelector('.cursor');
         const follower = document.querySelector('.cursor-follower');
         document.addEventListener('mousemove', (e) => {
-            cursor.style.left = e.clientX + 'px';
-            cursor.style.top = e.clientY + 'px';
-            follower.style.left = e.clientX + 'px';
-            follower.style.top = e.clientY + 'px';
+            cursor.style.transform = `translate(${e.clientX}px, ${e.clientY}px)`;
+            follower.style.transform = `translate(${e.clientX - 15}px, ${e.clientY - 15}px)`;
         });
 
-        // --- NAVBAR SCROLL ---
-        window.onscroll = function() {
-            if (window.scrollY > 50) document.getElementById('navbar').classList.add('scrolled');
-            else document.getElementById('navbar').classList.remove('scrolled');
-        };
-
-        // --- TOGGLE SERVICE ---
-        function toggleService(element) {
-            const card = element.parentElement;
-            card.classList.toggle('active');
-            const icon = element.querySelector('.toggle-icon');
-            icon.style.transform = card.classList.contains('active') ? 'rotate(90deg)' : 'rotate(0deg)';
+        // --- CALCULATOR LOGIC ---
+        function calculate() {
+            const base = document.getElementById('serviceType').value;
+            const multiplier = document.getElementById('complexity').value;
+            const total = base * multiplier;
+            document.getElementById('totalPrice').innerText = total;
         }
 
-        // --- TYPING EFFECT AVATAR ---
+        // --- AVATAR TYPING ---
         const conversations = [
-            { text: "Mau bikin karakter sekeren ini? Scroll aja! ✨", pose: "pose1.png" },
-            { text: "Video iklan AI kamu bisa jadi viral di sini. 🎬", pose: "pose2.png" },
-            { text: "Klik 'Get in Touch' buat tanya-tanya ya. Gratis! 😉", pose: "pose3.png" },
-            { text: "Banyak diskon buat project novel lho. 📚", pose: "pose4.png" }
+            { text: "Coba kalkulator harganya, transparan & jujur! 💎", pose: "pose1.png" },
+            { text: "Bento grid di atas adalah karya-karya terbaikku. 🎨", pose: "pose2.png" },
+            { text: "Butuh custom project? Chat aja, aku nggak gigit! 😂", pose: "pose3.png" }
         ];
 
-        let currentIdx = 0;
-        const textElement = document.getElementById('avatarChat');
-        const imgElement = document.getElementById('avatarImg');
+        let curIdx = 0;
+        const chatText = document.getElementById('avatarChat');
+        const chatImg = document.getElementById('avatarImg');
 
-        function typeWriter(text, i, fnCallback) {
+        function typeEffect(text, i, cb) {
             if (i < text.length) {
-                textElement.innerHTML = text.substring(0, i+1);
-                setTimeout(() => typeWriter(text, i + 1, fnCallback), 50);
-            } else if (typeof fnCallback == 'function') {
-                setTimeout(fnCallback, 3000);
-            }
+                chatText.innerHTML = text.substring(0, i+1);
+                setTimeout(() => typeEffect(text, i + 1, cb), 40);
+            } else { setTimeout(cb, 3000); }
         }
 
-        function startConversation() {
-            const data = conversations[currentIdx];
-            imgElement.src = data.pose;
-            imgElement.style.transform = "scale(1.1)";
-            setTimeout(() => imgElement.style.transform = "scale(1)", 300);
-
-            typeWriter(data.text, 0, () => {
-                currentIdx = (currentIdx + 1) % conversations.length;
-                startConversation();
+        function rotateChat() {
+            const data = conversations[curIdx];
+            chatImg.src = data.pose;
+            typeEffect(data.text, 0, () => {
+                curIdx = (curIdx + 1) % conversations.length;
+                rotateChat();
             });
         }
-
-        startConversation();
+        rotateChat();
     </script>
 </body>
 </html>
