@@ -1,236 +1,679 @@
 <!DOCTYPE html>
 <html lang="id">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Website Bisnis Modern</title>
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
-  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
-  <style>
-    /* Global Styles */
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-      font-family: 'Roboto', sans-serif;
-      scroll-behavior: smooth;
-    }
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jasa Kreatif Digital | Premium Services</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <style>
+        /* --- VARIABEL WARNA & TEMA --- */
+        :root {
+            --bg-dark: #0a0a12;
+            --primary-neon: #a855f7; /* Ungu */
+            --secondary-neon: #3b82f6; /* Biru */
+            --text-main: #f8fafc;
+            --text-muted: #94a3b8;
+            --glass-bg: rgba(255, 255, 255, 0.05);
+            --glass-border: rgba(255, 255, 255, 0.1);
+        }
 
-    body {
-      background: #0d0d0d;
-      color: #eee;
-    }
+        /* --- RESET & BASE --- */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Poppins', sans-serif;
+        }
 
-    a {
-      text-decoration: none;
-      color: inherit;
-    }
+        html { scroll-behavior: smooth; }
 
-    /* Neon & Glassmorphism */
-    .glass {
-      background: rgba(255, 255, 255, 0.05);
-      backdrop-filter: blur(10px);
-      border-radius: 15px;
-      padding: 20px;
-      box-shadow: 0 0 20px rgba(0,0,0,0.5);
-      transition: transform 0.3s;
-    }
-    .glass:hover {
-      transform: translateY(-5px);
-    }
+        body {
+            background-color: var(--bg-dark);
+            color: var(--text-main);
+            overflow-x: hidden;
+            background-image: radial-gradient(circle at top left, rgba(168, 85, 247, 0.15), transparent 40%),
+                              radial-gradient(circle at bottom right, rgba(59, 130, 246, 0.15), transparent 40%);
+        }
 
-    /* Header / Hero */
-    header {
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      align-items: center;
-      height: 100vh;
-      text-align: center;
-      position: relative;
-      padding: 0 20px;
-    }
+        a { text-decoration: none; color: inherit; }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
 
-    header h1 {
-      font-size: 3rem;
-      color: #9b5de5;
-      margin-bottom: 20px;
-      text-shadow: 0 0 10px #9b5de5;
-    }
+        /* --- UTILITY: GLASSMORPHISM --- */
+        .glass {
+            background: var(--glass-bg);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border: 1px solid var(--glass-border);
+            border-radius: 16px;
+        }
 
-    header p {
-      font-size: 1.2rem;
-      margin-bottom: 30px;
-    }
+        /* --- TYPOGRAPHY --- */
+        .gradient-text {
+            background: linear-gradient(90deg, var(--primary-neon), var(--secondary-neon));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
 
-    .cta-btn {
-      background: #3a0ca3;
-      color: #fff;
-      padding: 12px 25px;
-      border-radius: 50px;
-      font-weight: bold;
-      box-shadow: 0 0 15px #3a0ca3;
-      transition: all 0.3s;
-    }
+        .section-title {
+            text-align: center;
+            font-size: 2.5rem;
+            margin-bottom: 3rem;
+            padding-top: 5rem;
+        }
 
-    .cta-btn:hover {
-      background: #7209b7;
-      box-shadow: 0 0 25px #7209b7;
-    }
+        /* --- BUTTONS --- */
+        .btn {
+            display: inline-block;
+            padding: 12px 28px;
+            border-radius: 30px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            border: none;
+            text-align: center;
+        }
 
-    /* Services Section */
-    section#services {
-      padding: 80px 20px;
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: center;
-      gap: 20px;
-    }
+        .btn-primary {
+            background: linear-gradient(90deg, var(--primary-neon), var(--secondary-neon));
+            color: white;
+            box-shadow: 0 4px 15px rgba(168, 85, 247, 0.4);
+        }
 
-    .service-card {
-      width: 300px;
-      background: rgba(255, 255, 255, 0.05);
-      border-radius: 15px;
-      overflow: hidden;
-      transition: all 0.3s;
-      cursor: pointer;
-      position: relative;
-    }
+        .btn-primary:hover {
+            box-shadow: 0 0 25px rgba(59, 130, 246, 0.6);
+            transform: translateY(-2px);
+        }
 
-    .service-card img {
-      width: 100%;
-      display: block;
-    }
+        .btn-outline {
+            background: transparent;
+            border: 2px solid var(--primary-neon);
+            color: var(--text-main);
+        }
 
-    .service-card h3 {
-      padding: 15px;
-      font-size: 1.2rem;
-      color: #00f5d4;
-    }
+        .btn-outline:hover {
+            background: var(--primary-neon);
+            box-shadow: 0 0 15px rgba(168, 85, 247, 0.4);
+        }
 
-    .service-card .price {
-      padding: 0 15px 15px;
-      font-weight: bold;
-      color: #ff6d00;
-    }
+        /* --- 1. HERO SECTION --- */
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            padding-top: 80px;
+        }
 
-    .service-card .details {
-      display: none;
-      padding: 15px;
-      border-top: 1px solid rgba(255,255,255,0.1);
-    }
+        .hero-content {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 2rem;
+            align-items: center;
+        }
 
-    .service-card.active .details {
-      display: block;
-      animation: fadeIn 0.5s ease-in-out;
-    }
+        @media(min-width: 768px) {
+            .hero-content { grid-template-columns: 1fr 1fr; }
+        }
 
-    @keyframes fadeIn {
-      from {opacity:0;}
-      to {opacity:1;}
-    }
+        .hero-text h1 {
+            font-size: clamp(2.5rem, 5vw, 4rem);
+            line-height: 1.2;
+            margin-bottom: 1.5rem;
+        }
 
-    /* Avatar Guide */
-    .avatar-guide {
-      position: fixed;
-      bottom: 20px;
-      right: 20px;
-      width: 100px;
-      z-index: 1000;
-      cursor: pointer;
-    }
+        .hero-text p {
+            color: var(--text-muted);
+            font-size: 1.1rem;
+            margin-bottom: 2rem;
+            line-height: 1.6;
+        }
 
-    .avatar-guide img {
-      width: 100%;
-      border-radius: 50%;
-      box-shadow: 0 0 20px #3a0ca3;
-      animation: float 3s ease-in-out infinite;
-    }
+        .hero-buttons {
+            display: flex;
+            gap: 1rem;
+            flex-wrap: wrap;
+        }
 
-    @keyframes float {
-      0%, 100% { transform: translateY(0px); }
-      50% { transform: translateY(-10px); }
-    }
+        .hero-image img {
+            width: 100%;
+            max-width: 500px;
+            border-radius: 20px;
+            animation: float 6s ease-in-out infinite;
+        }
 
-    .chat-bubble {
-      position: absolute;
-      bottom: 120px;
-      right: 0;
-      background: #3a0ca3;
-      padding: 12px 18px;
-      border-radius: 15px;
-      color: #fff;
-      font-size: 0.9rem;
-      display: none;
-      width: max-content;
-      max-width: 200px;
-      box-shadow: 0 0 15px #3a0ca3;
-    }
+        @keyframes float {
+            0% { transform: translateY(0px); }
+            50% { transform: translateY(-20px); }
+            100% { transform: translateY(0px); }
+        }
 
-    .avatar-guide:hover .chat-bubble {
-      display: block;
-    }
+        /* --- 2. VIRTUAL GUIDE AVATAR --- */
+        .avatar-container {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            z-index: 1000;
+            display: flex;
+            flex-direction: column;
+            align-items: flex-end;
+        }
 
-    /* Responsive */
-    @media (max-width: 768px) {
-      header h1 {
-        font-size: 2.2rem;
-      }
-      .service-card {
-        width: 90%;
-      }
-    }
+        .chat-bubble {
+            background: var(--glass-bg);
+            backdrop-filter: blur(10px);
+            border: 1px solid var(--primary-neon);
+            padding: 12px 18px;
+            border-radius: 20px 20px 0 20px;
+            margin-bottom: 10px;
+            font-size: 0.9rem;
+            max-width: 250px;
+            box-shadow: 0 0 15px rgba(168, 85, 247, 0.3);
+            opacity: 1;
+            transition: opacity 0.5s ease;
+        }
 
-  </style>
+        .chat-bubble.fade-out { opacity: 0; }
+
+        .avatar-img {
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            border: 2px solid var(--secondary-neon);
+            cursor: pointer;
+            box-shadow: 0 0 15px rgba(59, 130, 246, 0.5);
+            transition: transform 0.3s;
+        }
+
+        .avatar-img:hover { transform: scale(1.1); }
+
+        /* --- 3. TENTANG SAYA --- */
+        .about-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+        }
+
+        .about-card {
+            padding: 2rem;
+            text-align: center;
+            transition: transform 0.3s;
+        }
+        
+        .about-card:hover { transform: translateY(-5px); }
+
+        .about-card i {
+            font-size: 2.5rem;
+            color: var(--secondary-neon);
+            margin-bottom: 1rem;
+        }
+
+        /* --- 4. BAGIAN JASA (EXPANDABLE CARDS) --- */
+        .services-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 1.5rem;
+        }
+
+        .service-card {
+            overflow: hidden;
+            transition: all 0.4s ease;
+        }
+
+        .service-header {
+            display: flex;
+            align-items: center;
+            padding: 1.5rem;
+            cursor: pointer;
+            position: relative;
+        }
+
+        .service-header img {
+            width: 80px;
+            height: 80px;
+            object-fit: cover;
+            border-radius: 12px;
+            margin-right: 1.5rem;
+        }
+
+        .service-title h3 { font-size: 1.5rem; margin-bottom: 0.5rem; }
+        .service-title p { color: var(--primary-neon); font-weight: 600; }
+
+        .toggle-icon {
+            position: absolute;
+            right: 20px;
+            font-size: 1.5rem;
+            transition: transform 0.3s;
+        }
+
+        .service-card.active .toggle-icon { transform: rotate(180deg); }
+        .service-card.active { border-color: var(--primary-neon); box-shadow: 0 0 20px rgba(168,85,247,0.2); }
+
+        .service-body {
+            display: none;
+            padding: 0 1.5rem 1.5rem 1.5rem;
+            border-top: 1px solid var(--glass-border);
+            margin-top: 1rem;
+            padding-top: 1.5rem;
+        }
+
+        .service-card.active .service-body {
+            display: block;
+            animation: fadeIn 0.5s ease;
+        }
+
+        .service-details-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 2rem;
+        }
+
+        @media(min-width: 768px) {
+            .service-details-grid { grid-template-columns: 1fr 1fr; }
+        }
+
+        .video-preview iframe, .video-preview img {
+            width: 100%;
+            border-radius: 12px;
+            aspect-ratio: 16/9;
+            object-fit: cover;
+        }
+
+        .pricing-packages {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+            gap: 1rem;
+            margin-top: 1.5rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .package {
+            background: rgba(255,255,255,0.02);
+            padding: 1rem;
+            border-radius: 8px;
+            text-align: center;
+            border: 1px solid var(--glass-border);
+        }
+
+        .package span { display: block; color: var(--primary-neon); font-weight: bold; margin-top: 5px;}
+
+        /* --- 5. PORTFOLIO --- */
+        .portfolio-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 1.5rem;
+        }
+
+        .portfolio-item {
+            position: relative;
+            border-radius: 16px;
+            overflow: hidden;
+            aspect-ratio: 4/3;
+        }
+
+        .portfolio-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s;
+        }
+
+        .portfolio-overlay {
+            position: absolute;
+            top: 0; left: 0; width: 100%; height: 100%;
+            background: rgba(10, 10, 18, 0.8);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            opacity: 0;
+            transition: opacity 0.3s;
+        }
+
+        .portfolio-item:hover img { transform: scale(1.1); }
+        .portfolio-item:hover .portfolio-overlay { opacity: 1; }
+
+        /* --- 6. TESTIMONI --- */
+        .testimonial-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 1.5rem;
+        }
+
+        .testimonial-card {
+            padding: 2rem;
+            font-style: italic;
+            color: var(--text-muted);
+        }
+
+        .client-info {
+            display: flex;
+            align-items: center;
+            margin-top: 1rem;
+            font-style: normal;
+        }
+
+        .client-info img {
+            width: 40px; height: 40px;
+            border-radius: 50%;
+            margin-right: 10px;
+        }
+
+        /* --- 7. CTA & 8. KONTAK --- */
+        .cta-section {
+            text-align: center;
+            padding: 6rem 0;
+        }
+
+        .social-links {
+            display: flex;
+            justify-content: center;
+            gap: 1.5rem;
+            margin-top: 2rem;
+        }
+
+        .social-links a {
+            font-size: 2rem;
+            color: var(--text-muted);
+            transition: color 0.3s, transform 0.3s;
+        }
+
+        .social-links a:hover {
+            color: var(--primary-neon);
+            transform: translateY(-5px);
+        }
+
+        /* --- 9. FOOTER --- */
+        footer {
+            text-align: center;
+            padding: 2rem 0;
+            border-top: 1px solid var(--glass-border);
+            margin-top: 4rem;
+            color: var(--text-muted);
+            font-size: 0.9rem;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+    </style>
 </head>
 <body>
 
-  <!-- Hero Section -->
-  <header>
-    <h1>Selamat Datang di Website Bisnis Saya</h1>
-    <p>Melayani Anda dengan solusi digital modern & interaktif</p>
-    <a href="#services" class="cta-btn">Lihat Layanan</a>
-  </header>
-
-  <!-- Services Section -->
-  <section id="services">
-    <div class="service-card glass">
-      <img src="https://via.placeholder.com/300x200" alt="Service 1">
-      <h3>Jasa Desain Website</h3>
-      <p class="price">Mulai dari Rp1.500.000</p>
-      <div class="details">
-        <p>Desain website profesional, responsif, dan modern untuk bisnis Anda.</p>
-        <p>Paket: Basic, Standard, Premium</p>
-        <a href="https://wa.me/08123456789" class="cta-btn">Order via WhatsApp</a>
-      </div>
+    <div class="avatar-container">
+        <div class="chat-bubble" id="avatarChat">Halo! Lagi cari jasa kreatif? Aku bisa bantu 👀</div>
+        <img src="https://ui-avatars.com/api/?name=Guide&background=a855f7&color=fff&rounded=true" alt="Virtual Guide" class="avatar-img" onclick="document.getElementById('jasa').scrollIntoView()">
     </div>
 
-    <div class="service-card glass">
-      <img src="https://via.placeholder.com/300x200" alt="Service 2">
-      <h3>Manajemen Media Sosial</h3>
-      <p class="price">Mulai dari Rp1.000.000</p>
-      <div class="details">
-        <p>Mengelola akun media sosial dengan strategi konten efektif & interaktif.</p>
-        <p>Paket: Basic, Standard, Premium</p>
-        <a href="https://wa.me/08123456789" class="cta-btn">Order via WhatsApp</a>
-      </div>
+    <div class="container">
+        <section class="hero" id="beranda">
+            <div class="hero-content">
+                <div class="hero-text">
+                    <h1>Mengubah Ide Menjadi <span class="gradient-text">Visual Menarik</span></h1>
+                    <p>Saya menyediakan berbagai jasa kreatif digital untuk membantu brand, cerita, dan produk Anda tampil lebih menonjol di era digital.</p>
+                    <div class="hero-buttons">
+                        <a href="#jasa" class="btn btn-primary">Lihat Jasa Saya</a>
+                        <a href="#kontak" class="btn btn-outline">Hubungi Sekarang</a>
+                    </div>
+                </div>
+                <div class="hero-image glass">
+                    <img src="https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?q=80&w=2564&auto=format&fit=crop" alt="Creative Digital Art">
+                </div>
+            </div>
+        </section>
+
+        <section id="tentang">
+            <h2 class="section-title">Kenapa Memilih <span class="gradient-text">Saya?</span></h2>
+            <div class="about-grid">
+                <div class="about-card glass">
+                    <i class="fas fa-gem"></i>
+                    <h3>Kualitas Premium</h3>
+                    <p style="color: var(--text-muted); margin-top: 10px;">Setiap piksel dan detik video dikerjakan dengan standar profesional tinggi.</p>
+                </div>
+                <div class="about-card glass">
+                    <i class="fas fa-bolt"></i>
+                    <h3>Pengerjaan Cepat</h3>
+                    <p style="color: var(--text-muted); margin-top: 10px;">Proses efisien dengan bantuan AI tanpa mengorbankan nilai estetika.</p>
+                </div>
+                <div class="about-card glass">
+                    <i class="fas fa-infinity"></i>
+                    <h3>Fleksibilitas</h3>
+                    <p style="color: var(--text-muted); margin-top: 10px;">Gaya desain yang menyesuaikan identitas dan kebutuhan brand Anda.</p>
+                </div>
+            </div>
+        </section>
+
+        <section id="jasa">
+            <h2 class="section-title">Jasa <span class="gradient-text">Kreatif</span></h2>
+            <div class="services-grid">
+                
+                <div class="service-card glass">
+                    <div class="service-header" onclick="toggleService(this)">
+                        <img src="https://images.unsplash.com/photo-1561214115-f2f119ce10aa?w=200&auto=format&fit=crop" alt="Character Design">
+                        <div class="service-title">
+                            <h3>Character Design</h3>
+                            <p>Mulai dari $25</p>
+                        </div>
+                        <i class="fas fa-chevron-down toggle-icon"></i>
+                    </div>
+                    <div class="service-body">
+                        <div class="service-details-grid">
+                            <div class="service-desc">
+                                <h4>Visualkan Karakter Impian Anda</h4>
+                                <p style="color: var(--text-muted); margin: 10px 0;">Desain karakter unik untuk maskot brand, game, atau cerita Anda. Saya membantu menerjemahkan kepribadian menjadi desain visual yang kuat dan mudah diingat audiens.</p>
+                                
+                                <div class="pricing-packages">
+                                    <div class="package">Basic <span>$25</span></div>
+                                    <div class="package">Standard <span>$45</span></div>
+                                    <div class="package">Premium <span>$75</span></div>
+                                </div>
+                                <a href="https://wa.me/6281234567890?text=Halo,%20saya%20tertarik%20dengan%20jasa%20Character%20Design" target="_blank" class="btn btn-primary" style="width: 100%;">Pesan Sekarang via WA <i class="fab fa-whatsapp"></i></a>
+                            </div>
+                            <div class="video-preview">
+                                <img src="https://images.unsplash.com/photo-1561214115-f2f119ce10aa?w=600&auto=format&fit=crop" alt="Preview">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="service-card glass">
+                    <div class="service-header" onclick="toggleService(this)">
+                        <img src="https://images.unsplash.com/photo-1536240478700-b869070f9279?w=200&auto=format&fit=crop" alt="Video Klip AI">
+                        <div class="service-title">
+                            <h3>Video Klip AI</h3>
+                            <p>Mulai dari $40</p>
+                        </div>
+                        <i class="fas fa-chevron-down toggle-icon"></i>
+                    </div>
+                    <div class="service-body">
+                        <div class="service-details-grid">
+                            <div class="service-desc">
+                                <h4>Bawa Musik Anda ke Dimensi Baru</h4>
+                                <p style="color: var(--text-muted); margin: 10px 0;">Pembuatan video musik menggunakan teknologi AI generatif terkini. Visual yang menyesuaikan *beat* dan *mood* lagu Anda untuk pengalaman sinematik.</p>
+                                <div class="pricing-packages">
+                                    <div class="package">Basic <span>$40</span></div>
+                                    <div class="package">Standard <span>$80</span></div>
+                                    <div class="package">Premium <span>$150</span></div>
+                                </div>
+                                <a href="https://wa.me/6281234567890?text=Halo,%20saya%20tertarik%20dengan%20jasa%20Video%20Klip%20AI" target="_blank" class="btn btn-primary" style="width: 100%;">Pesan Sekarang via WA <i class="fab fa-whatsapp"></i></a>
+                            </div>
+                            <div class="video-preview">
+                                <img src="https://images.unsplash.com/photo-1536240478700-b869070f9279?w=600&auto=format&fit=crop" alt="Preview">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="service-card glass">
+                    <div class="service-header" onclick="toggleService(this)">
+                        <img src="https://images.unsplash.com/photo-1557838923-2985c318be48?w=200&auto=format&fit=crop" alt="Video Iklan AI">
+                        <div class="service-title">
+                            <h3>Video Iklan AI</h3>
+                            <p>Mulai dari $50</p>
+                        </div>
+                        <i class="fas fa-chevron-down toggle-icon"></i>
+                    </div>
+                    <div class="service-body">
+                        <div class="service-details-grid">
+                            <div class="service-desc">
+                                <h4>Tingkatkan Konversi dengan Video Modern</h4>
+                                <p style="color: var(--text-muted); margin: 10px 0;">Video promosi (Reels/TikTok/Ads) yang dirancang khusus untuk menarik perhatian dalam 3 detik pertama. Kualitas tinggi tanpa perlu biaya produksi syuting yang mahal.</p>
+                                <div class="pricing-packages">
+                                    <div class="package">Basic <span>$50</span></div>
+                                    <div class="package">Standard <span>$100</span></div>
+                                    <div class="package">Premium <span>$200</span></div>
+                                </div>
+                                <a href="https://wa.me/6281234567890?text=Halo,%20saya%20tertarik%20dengan%20jasa%20Video%20Iklan%20AI" target="_blank" class="btn btn-primary" style="width: 100%;">Pesan Sekarang via WA <i class="fab fa-whatsapp"></i></a>
+                            </div>
+                            <div class="video-preview">
+                                <img src="https://images.unsplash.com/photo-1557838923-2985c318be48?w=600&auto=format&fit=crop" alt="Preview">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="service-card glass">
+                    <div class="service-header" onclick="toggleService(this)">
+                        <img src="https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?w=200&auto=format&fit=crop" alt="Desain Kaos">
+                        <div class="service-title">
+                            <h3>Desain Kaos / T-Shirt</h3>
+                            <p>Mulai dari $20</p>
+                        </div>
+                        <i class="fas fa-chevron-down toggle-icon"></i>
+                    </div>
+                    <div class="service-body">
+                        <div class="service-details-grid">
+                            <div class="service-desc">
+                                <h4>Merchandise yang Ingin Dipakai Semua Orang</h4>
+                                <p style="color: var(--text-muted); margin: 10px 0;">Desain tipografi, ilustrasi, atau gaya streetwear untuk brand clothing Anda. File siap cetak resolusi tinggi.</p>
+                                <div class="pricing-packages">
+                                    <div class="package">Basic <span>$20</span></div>
+                                    <div class="package">Standard <span>$35</span></div>
+                                    <div class="package">Premium <span>$60</span></div>
+                                </div>
+                                <a href="https://wa.me/6281234567890?text=Halo,%20saya%20tertarik%20dengan%20jasa%20Desain%20Kaos" target="_blank" class="btn btn-primary" style="width: 100%;">Pesan Sekarang via WA <i class="fab fa-whatsapp"></i></a>
+                            </div>
+                            <div class="video-preview">
+                                <img src="https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?w=600&auto=format&fit=crop" alt="Preview">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+        <section id="portfolio">
+            <h2 class="section-title">Karya <span class="gradient-text">Terbaru</span></h2>
+            <div class="portfolio-grid">
+                <div class="portfolio-item glass">
+                    <img src="https://images.unsplash.com/photo-1620641788421-7a1c342ea42e?w=500&auto=format&fit=crop" alt="Karya 1">
+                    <div class="portfolio-overlay"><h3>Cyberpunk Art</h3></div>
+                </div>
+                <div class="portfolio-item glass">
+                    <img src="https://images.unsplash.com/photo-1614729939124-032f0b56c9ce?w=500&auto=format&fit=crop" alt="Karya 2">
+                    <div class="portfolio-overlay"><h3>3D Rendering</h3></div>
+                </div>
+                <div class="portfolio-item glass">
+                    <img src="https://images.unsplash.com/photo-1550745165-9bc0b252726f?w=500&auto=format&fit=crop" alt="Karya 3">
+                    <div class="portfolio-overlay"><h3>Retro Synthwave</h3></div>
+                </div>
+            </div>
+        </section>
+
+        <section id="testimoni">
+            <h2 class="section-title">Apa Kata <span class="gradient-text">Mereka?</span></h2>
+            <div class="testimonial-grid">
+                <div class="testimonial-card glass">
+                    <p>"Hasil desain karakternya luar biasa! Jauh melampaui ekspektasi saya. Pengerjaan cepat dan komunikasinya sangat enak."</p>
+                    <div class="client-info">
+                        <img src="https://ui-avatars.com/api/?name=Budi&background=random" alt="Budi">
+                        <div>
+                            <h4 style="color: var(--text-main)">Budi S.</h4>
+                            <span style="font-size: 0.8rem;">Game Developer</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="testimonial-card glass">
+                    <p>"Video iklan AI-nya berhasil ningkatin konversi penjualan toko saya sampai 40%. Sangat direkomendasikan!"</p>
+                    <div class="client-info">
+                        <img src="https://ui-avatars.com/api/?name=Siska&background=random" alt="Siska">
+                        <div>
+                            <h4 style="color: var(--text-main)">Siska M.</h4>
+                            <span style="font-size: 0.8rem;">Brand Owner</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="cta-section" id="kontak">
+            <h2 style="font-size: clamp(2rem, 4vw, 3rem); margin-bottom: 1rem;">Siap Mewujudkan <span class="gradient-text">Ide Anda?</span></h2>
+            <p style="color: var(--text-muted); margin-bottom: 2rem; font-size: 1.1rem;">Jangan ragu untuk berdiskusi. Konsultasi ide itu gratis!</p>
+            <a href="https://wa.me/6281234567890" target="_blank" class="btn btn-primary" style="font-size: 1.2rem; padding: 15px 40px;">
+                <i class="fab fa-whatsapp"></i> Mulai Sekarang
+            </a>
+
+            <div class="social-links">
+                <a href="#"><i class="fab fa-tiktok"></i></a>
+                <a href="#"><i class="fab fa-instagram"></i></a>
+                <a href="#"><i class="fab fa-facebook"></i></a>
+                <a href="#"><i class="fas fa-link"></i></a> </div>
+        </section>
+
     </div>
-  </section>
 
-  <!-- Avatar Guide -->
-  <div class="avatar-guide">
-    <img src="https://via.placeholder.com/100" alt="Avatar Guide">
-    <div class="chat-bubble">Halo! Klik layanan untuk info lebih lengkap 😄</div>
-  </div>
+    <footer>
+        <p>&copy; 2026 Your Creative Name. All rights reserved.</p>
+    </footer>
 
-  <script>
-    // Toggle service details
-    const serviceCards = document.querySelectorAll('.service-card');
-    serviceCards.forEach(card => {
-      card.addEventListener('click', () => {
-        card.classList.toggle('active');
-      });
-    });
-  </script>
+    <script>
+        // 1. Logika untuk Expandable Service Cards
+        function toggleService(element) {
+            // Tutup semua kartu yang sedang terbuka agar rapi (Opsional)
+            const allCards = document.querySelectorAll('.service-card');
+            const parentCard = element.parentElement;
+            
+            allCards.forEach(card => {
+                if(card !== parentCard) {
+                    card.classList.remove('active');
+                }
+            });
+
+            // Buka/Tutup kartu yang diklik
+            parentCard.classList.toggle('active');
+        }
+
+        // 2. Logika untuk Avatar Penuntun (Virtual Guide)
+        const messages = [
+            "Halo! Lagi cari jasa kreatif? Aku bisa bantu 👀",
+            "Coba cek bagian jasa, itu yang paling penting 🔥",
+            "Portofolionya juga keren lho, scroll ke bawah ya!",
+            "Kalau sudah cocok, langsung klik tombol WhatsApp ya 😉"
+        ];
+        
+        let messageIndex = 0;
+        const chatBubble = document.getElementById('avatarChat');
+
+        setInterval(() => {
+            // Efek memudar hilang
+            chatBubble.classList.add('fade-out');
+            
+            setTimeout(() => {
+                // Ganti teks saat tidak terlihat
+                messageIndex = (messageIndex + 1) % messages.length;
+                chatBubble.innerText = messages[messageIndex];
+                
+                // Efek memudar muncul
+                chatBubble.classList.remove('fade-out');
+            }, 500); // Waktu yang sama dengan durasi transisi CSS
+        }, 6000); // Ganti pesan setiap 6 detik
+    </script>
 </body>
 </html>
