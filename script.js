@@ -1,5 +1,3 @@
-// script.js
-
 // 1. Logika Avatar Penuntun
 let messageIndex = 0;
 const chatBubble = document.getElementById('avatarChat');
