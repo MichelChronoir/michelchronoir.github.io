@@ -15,8 +15,8 @@ const siteData = {
             id: "char-design",
             title: "Character Design",
             startPrice: "$25",
-            thumb: "https://images.unsplash.com/photo-1561214115-f2f119ce10aa?w=200&auto=format&fit=crop",
-            preview: "https://images.unsplash.com/photo-1561214115-f2f119ce10aa?w=600&auto=format&fit=crop",
+            thumb: "Image_th90lrth90lrth90.png",
+            preview: "Image_th90lrth90lrth90.png",
             headline: "Visualkan Karakter Impian Anda",
             desc: "Desain karakter unik untuk maskot brand, game, atau cerita Anda. Saya membantu menerjemahkan kepribadian menjadi desain visual yang kuat dan mudah diingat audiens.",
             packages: { basic: "$25", standard: "$45", premium: "$75" }
