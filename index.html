@@ -34,7 +34,6 @@
         }
 
         a { text-decoration: none; color: inherit; }
-        ul { list-style: none; }
 
         .container {
             max-width: 1100px;
@@ -42,7 +41,6 @@
             padding: 0 20px;
         }
 
-        /* --- UTILITY --- */
         .gradient-text {
             background: linear-gradient(90deg, var(--primary), var(--secondary));
             -webkit-background-clip: text;
@@ -99,7 +97,6 @@
             color: var(--text-muted);
             font-size: 1.2rem;
             margin-bottom: 2.5rem;
-            max-width: 600px;
         }
 
         .hero-btns { display: flex; gap: 15px; justify-content: center; flex-wrap: wrap; }
@@ -110,7 +107,6 @@
             border-radius: 50px;
             font-weight: 700;
             transition: all 0.3s ease;
-            cursor: pointer;
             display: inline-flex;
             align-items: center;
             gap: 10px;
@@ -124,24 +120,11 @@
 
         .btn-primary:hover { transform: translateY(-3px); box-shadow: 0 15px 30px rgba(168, 85, 247, 0.5); }
 
-        .btn-outline {
-            border: 1px solid var(--glass-border);
-            background: rgba(255,255,255,0.05);
-        }
-
-        .btn-outline:hover { background: rgba(255,255,255,0.1); }
-
-        /* Gaya Foto Hero Michellyn */
-        .hero-image {
-            position: relative;
-        }
-        
         .hero-image img {
             width: 100%;
             max-width: 450px;
             border-radius: 30px;
-            /* Tambahan efek bayangan dan sedikit vignette agar elegan */
-            box-shadow: 0 20px 50px rgba(0,0,0,0.6), inset 0 0 50px rgba(0,0,0,0.5);
+            box-shadow: 0 20px 50px rgba(0,0,0,0.6);
             animation: float 6s ease-in-out infinite;
             display: block;
             margin: 0 auto;
@@ -154,39 +137,24 @@
 
         /* --- SERVICES (EXPANDABLE) --- */
         .services-grid { display: flex; flex-direction: column; gap: 1.5rem; }
-
         .service-card { overflow: hidden; }
-
-        .service-header {
-            padding: 20px;
-            display: flex;
-            align-items: center;
-            cursor: pointer;
-            position: relative;
-        }
-
-        .service-header img {
-            width: 60px; height: 60px; border-radius: 12px; margin-right: 20px; object-fit: cover;
-        }
-
-        .service-title h3 { font-family: 'Syne', sans-serif; font-size: 1.3rem; }
-        .service-title p { color: var(--primary); font-weight: 600; font-size: 0.9rem; }
-
+        .service-header { padding: 25px; display: flex; align-items: center; cursor: pointer; position: relative; }
+        .service-header i.icon-main { font-size: 2rem; margin-right: 20px; color: var(--primary); }
+        .service-title h3 { font-family: 'Syne', sans-serif; font-size: 1.4rem; }
+        .service-title p { color: var(--secondary); font-weight: 600; font-size: 0.9rem; }
         .toggle-icon { position: absolute; right: 25px; transition: 0.3s; color: var(--text-muted); }
-
         .service-card.active .toggle-icon { transform: rotate(180deg); color: var(--primary); }
-        .service-card.active { border-color: var(--primary); }
 
         .service-body {
             max-height: 0;
-            padding: 0 20px;
+            padding: 0 25px;
             transition: all 0.5s cubic-bezier(0, 1, 0, 1);
             opacity: 0;
         }
 
         .service-card.active .service-body {
-            max-height: 1000px;
-            padding: 20px;
+            max-height: 1200px;
+            padding: 25px;
             opacity: 1;
             transition: all 0.5s ease-in;
         }
@@ -195,19 +163,10 @@
         @media(min-width: 768px) { .service-content { grid-template-columns: 1fr 1fr; } }
 
         .package-list { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; margin: 20px 0; }
-        .package { background: rgba(255,255,255,0.03); padding: 10px; border-radius: 10px; text-align: center; font-size: 0.8rem; }
+        .package { background: rgba(255,255,255,0.03); padding: 10px; border-radius: 10px; text-align: center; font-size: 0.8rem; border: 1px solid var(--glass-border); }
         .package b { display: block; color: var(--primary); font-size: 1rem; }
 
-        /* --- PORTFOLIO --- */
-        .portfolio-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 20px; }
-        .portfolio-item { position: relative; border-radius: 20px; overflow: hidden; aspect-ratio: 1; }
-        .portfolio-item img { width: 100%; height: 100%; object-fit: cover; transition: 0.5s; }
-        .portfolio-overlay {
-            position: absolute; inset: 0; background: rgba(11, 15, 26, 0.8);
-            display: flex; align-items: center; justify-content: center; opacity: 0; transition: 0.3s;
-        }
-        .portfolio-item:hover .portfolio-overlay { opacity: 1; }
-        .portfolio-item:hover img { transform: scale(1.1); }
+        .preview-media { width: 100%; border-radius: 15px; box-shadow: 0 10px 30px rgba(0,0,0,0.3); }
 
         /* --- AVATAR GUIDE --- */
         .avatar-container {
@@ -225,7 +184,6 @@
             cursor: pointer; box-shadow: 0 0 20px rgba(168, 85, 247, 0.4);
         }
 
-        /* --- FOOTER --- */
         footer { padding: 50px 0; text-align: center; border-top: 1px solid var(--glass-border); margin-top: 100px; color: var(--text-muted); }
         .social-links { display: flex; justify-content: center; gap: 25px; margin-bottom: 20px; }
         .social-links a { font-size: 1.5rem; transition: 0.3s; }
@@ -241,7 +199,7 @@
 <body>
 
     <div class="avatar-container">
-        <div class="chat-bubble" id="avatarChat">Halo! Lagi cari jasa kreatif? Aku bisa bantu 👀</div>
+        <div class="chat-bubble" id="avatarChat">Siap memvisualisasikan ide brilianmu? 🚀</div>
         <img src="https://ui-avatars.com/api/?name=Guide&background=a855f7&color=fff&rounded=true" alt="Guide" class="avatar-img" onclick="document.getElementById('jasa').scrollIntoView()">
     </div>
 
@@ -250,71 +208,74 @@
             <div class="glow" style="top: -10%; right: -10%;"></div>
             <div class="hero-content">
                 <div class="hero-text" data-aos="fade-right">
-                    <h1>Mengubah Ide Menjadi <br><span class="gradient-text">Karya Visual</span></h1>
-                    <p>Solusi kreatif digital berbasis AI untuk membantu brand dan cerita Anda tampil lebih menonjol dan elegan.</p>
+                    <h1>Michellyn <br><span class="gradient-text">Creative Studio</span></h1>
+                    <p>Fokus pada pembuatan Karakter Unik dan Video Promosi berbasis AI untuk Game, Novel, dan Bisnis Anda.</p>
                     <div class="hero-btns">
-                        <a href="#jasa" class="btn btn-primary">Lihat Jasa</a>
-                        <a href="https://wa.me/6283181216914" class="btn btn-outline">Konsultasi Gratis</a>
+                        <a href="#jasa" class="btn btn-primary">Eksplor Jasa</a>
+                        <a href="https://wa.me/6283181216914" class="btn btn-primary" style="background: rgba(255,255,255,0.05); border: 1px solid var(--glass-border);">WhatsApp Me</a>
                     </div>
                 </div>
                 <div class="hero-image" data-aos="fade-left">
-                    <img src="michellyn.png" alt="Michellyn - Creative Services">
+                    <img src="michellyn.png" alt="Michellyn Hero">
                 </div>
             </div>
         </section>
 
         <section id="jasa">
-            <h2 class="section-title">Layanan <span class="gradient-text">Premium</span></h2>
+            <h2 class="section-title">Fokus <span class="gradient-text">Layanan</span></h2>
             <div class="services-grid">
                 
                 <div class="service-card glass" data-aos="fade-up">
                     <div class="service-header" onclick="toggleService(this)">
-                        <img src="Image_th90lrth90lrth90.png" alt="Character">
+                        <i class="fas fa-paint-brush icon-main"></i>
                         <div class="service-title">
-                            <h3>Character Design</h3>
-                            <p>Mulai dari $25</p>
+                            <h3>Premium Character Design</h3>
+                            <p>Visualkan Tokoh Impian</p>
                         </div>
                         <i class="fas fa-chevron-down toggle-icon"></i>
                     </div>
                     <div class="service-body">
                         <div class="service-content">
                             <div>
-                                <h4>Visualkan Karakter Impian Anda</h4>
-                                <p style="color:var(--text-muted); margin: 15px 0;">Desain karakter unik untuk maskot brand, game, atau novel Anda menggunakan teknologi AI terbaru.</p>
+                                <h4>Membangun Identitas Visual Tokoh</h4>
+                                <p style="color:var(--text-muted); margin: 15px 0;">Sangat cocok untuk penulis novel yang ingin memvisualisasikan karakternya, atau developer game yang membutuhkan konsep Original Character (OC).</p>
                                 <div class="package-list">
-                                    <div class="package">Basic<b>$25</b></div>
+                                    <div class="package">Draft<b>$25</b></div>
                                     <div class="package">Standard<b>$45</b></div>
-                                    <div class="package">Premium<b>$75</b></div>
+                                    <div class="package">Full Set<b>$75</b></div>
                                 </div>
-                                <a href="https://wa.me/6281234567890" class="btn btn-primary" style="width:100%">Pesan Sekarang</a>
+                                <a href="https://wa.me/6283181216914" class="btn btn-primary" style="width:100%">Order Character</a>
                             </div>
-                            <img src="Image_th90lrth90lrth90.png" style="width:100%; border-radius:15px;" alt="Preview Character Design">
+                            <img src="Image_th90lrth90lrth90.png" class="preview-media" alt="Character Preview">
                         </div>
                     </div>
                 </div>
 
                 <div class="service-card glass" data-aos="fade-up" data-aos-delay="100">
                     <div class="service-header" onclick="toggleService(this)">
-                        <img src="https://images.unsplash.com/photo-1536240478700-b869070f9279?w=200" alt="Video">
+                        <i class="fas fa-video icon-main"></i>
                         <div class="service-title">
-                            <h3>Video Musik & Iklan AI</h3>
-                            <p>Mulai dari $40</p>
+                            <h3>AI Video Marketing & Promotion</h3>
+                            <p>Visual Cinematic High-Impact</p>
                         </div>
                         <i class="fas fa-chevron-down toggle-icon"></i>
                     </div>
                     <div class="service-body">
                         <div class="service-content">
                             <div>
-                                <h4>Dimensi Baru untuk Konten Anda</h4>
-                                <p style="color:var(--text-muted); margin: 15px 0;">Video promosi (Reels/TikTok) atau video musik dengan visual sinematik yang menyesuaikan beat lagu.</p>
+                                <h4>Promosi Masa Depan</h4>
+                                <p style="color:var(--text-muted); margin: 15px 0;">Ubah deskripsi produk, cuplikan novel, atau konsep game menjadi video promosi sinematik yang memukau. Sangat efektif untuk iklan di TikTok, Instagram Reels, dan YouTube Shorts.</p>
                                 <div class="package-list">
-                                    <div class="package">Basic<b>$40</b></div>
-                                    <div class="package">Standard<b>$80</b></div>
-                                    <div class="package">Premium<b>$150</b></div>
+                                    <div class="package">Ads Mini<b>$40</b></div>
+                                    <div class="package">Pro Promo<b>$80</b></div>
+                                    <div class="package">Full Cin<b>$150</b></div>
                                 </div>
-                                <a href="https://wa.me/6281234567890" class="btn btn-primary" style="width:100%">Pesan Sekarang</a>
+                                <a href="https://wa.me/6283181216914" class="btn btn-primary" style="width:100%">Buat Video Promosi</a>
                             </div>
-                            <img src="https://images.unsplash.com/photo-1536240478700-b869070f9279?w=600" style="width:100%; border-radius:15px;" alt="Preview Video AI">
+                            <video class="preview-media" autoplay loop muted playsinline>
+                                <source src="1000029378.mp4" type="video/mp4">
+                                Browser kamu tidak mendukung pemutaran video.
+                            </video>
                         </div>
                     </div>
                 </div>
@@ -322,29 +283,11 @@
             </div>
         </section>
 
-        <section id="portfolio">
-            <h2 class="section-title">Karya <span class="gradient-text">Terbaru</span></h2>
-            <div class="portfolio-grid">
-                <div class="portfolio-item glass" data-aos="zoom-in">
-                    <img src="https://images.unsplash.com/photo-1620641788421-7a1c342ea42e?w=500" alt="P1">
-                    <div class="portfolio-overlay"><h3>Cyberpunk Art</h3></div>
-                </div>
-                <div class="portfolio-item glass" data-aos="zoom-in" data-aos-delay="100">
-                    <img src="https://images.unsplash.com/photo-1614729939124-032f0b56c9ce?w=500" alt="P2">
-                    <div class="portfolio-overlay"><h3>3D Concept</h3></div>
-                </div>
-                <div class="portfolio-item glass" data-aos="zoom-in" data-aos-delay="200">
-                    <img src="https://images.unsplash.com/photo-1550745165-9bc0b252726f?w=500" alt="P3">
-                    <div class="portfolio-overlay"><h3>Retro Vibes</h3></div>
-                </div>
-            </div>
-        </section>
-
-        <section class="hero" style="min-height: 60vh;">
-            <div data-aos="fade-up">
-                <h2 style="font-family:'Syne'; font-size:3rem; margin-bottom:20px;">Siap Berkolaborasi?</h2>
-                <p style="margin: 0 auto 40px;">Konsultasikan ide liarmu dan biarkan kami mewujudkannya.</p>
-                <a href="https://wa.me/6283181216914" class="btn btn-primary">Mulai Sekarang <i class="fab fa-whatsapp"></i></a>
+        <section class="hero" style="min-height: 50vh;">
+            <div data-aos="zoom-in" style="text-align: center;">
+                <h2 style="font-family:'Syne'; font-size:2.5rem; margin-bottom:20px;">Wujudkan Visi Anda <span class="gradient-text">Sekarang</span></h2>
+                <p style="margin-bottom: 40px;">Konsultasikan kebutuhan visual Anda secara gratis.</p>
+                <a href="https://wa.me/6283181216914" class="btn btn-primary">Mulai Proyek</a>
             </div>
         </section>
 
@@ -356,7 +299,7 @@
             <a href="https://www.facebook.com/MhmdIdriskamali" target="_blank"><i class="fab fa-facebook"></i></a>
             <a href="#"><i class="fab fa-tiktok"></i></a>
         </div>
-        <p>&copy; 2026 Michellyn Creative. All rights reserved.</p>
+        <p>&copy; 2026 Michellyn. Berfokus pada Inovasi Visual.</p>
     </footer>
 
     <script>
@@ -371,10 +314,10 @@
         }
 
         const chatMessages = [
-            "Halo! Lagi cari jasa kreatif? Aku bisa bantu 👀",
-            "Coba klik bagian jasa untuk lihat detail harga 🔥",
-            "Scroll ke bawah untuk portofolio terbaru!",
-            "Konsultasi via WA itu gratis lho! 😉"
+            "Halo! Mau buat promo untuk Novel atau Game-mu? 📚",
+            "Cek video promosi terbaru di bagian Jasa! 🔥",
+            "Butuh Character Design yang ikonik? Langsung klik!",
+            "Konsultasi via WA aktif 24/7 lho! 😉"
         ];
         let msgIdx = 0;
         setInterval(() => {
