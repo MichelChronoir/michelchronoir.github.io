@@ -215,8 +215,8 @@ a { text-decoration: none; color: inherit; }
 }
 
 .service-header img {
-    width: 80px;
-    height: 80px;
+    width: 1000px;
+    height: auto;
     object-fit: cover;
     border-radius: 12px;
     margin-right: 1.5rem;
