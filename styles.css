@@ -18,11 +18,15 @@
 html { scroll-behavior: smooth; }
 
 body {
-    background-color: var(--bg-dark);
-    color: var(--text-main);
-    overflow-x: hidden;
-    background-image: radial-gradient(circle at top left, rgba(168, 85, 247, 0.15), transparent 40%),
-                      radial-gradient(circle at bottom right, rgba(59, 130, 246, 0.15), transparent 40%);
+  background-color: #0f172a; /* Biru sangat gelap */
+  color: #f1f5f9;
+  font-family: 'Inter', sans-serif;
+  scroll-behavior: smooth;
+}
+
+h1, h2, h3 {
+  font-family: 'Syne', sans-serif;
+  letter-spacing: -0.02em;
 }
 
 a { text-decoration: none; color: inherit; }
@@ -85,6 +89,13 @@ a { text-decoration: none; color: inherit; }
 .btn-outline:hover {
     background: var(--primary-neon);
     box-shadow: 0 0 15px rgba(168, 85, 247, 0.4);
+}
+
+.hero-title {
+  background: linear-gradient(90deg, #a855f7, #3b82f6);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  font-size: clamp(3rem, 8vw, 5rem); /* Responsive size */
 }
 
 .hero {
@@ -202,8 +213,18 @@ a { text-decoration: none; color: inherit; }
 }
 
 .service-card {
-    overflow: hidden;
-    transition: all 0.4s ease;
+  background: rgba(255, 255, 255, 0.03);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 20px;
+  padding: 2rem;
+  transition: all 0.3s ease;
+}
+
+.service-card:hover {
+  transform: translateY(-10px);
+  background: rgba(168, 85, 247, 0.1); /* Ungu transparan saat hover */
+  border-color: #a855f7;
 }
 
 .service-header {
