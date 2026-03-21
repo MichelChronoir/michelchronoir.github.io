@@ -106,12 +106,36 @@
         }
 
         /* --- 1. HERO SECTION --- */
-        .hero {
-            min-height: 100vh;
-            display: flex;
-            align-items: center;
-            padding-top: 80px;
-        }
+
+    .hero {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column; /* Agar konten tersusun atas-bawah */
+    align-items: center;
+    justify-content: center; /* Agar konten benar-benar di tengah layar */
+    text-align: center;
+    padding: 80px 20px;
+    position: relative;
+    overflow: hidden;
+    background: #0f172a; /* Warna navy gelap yang elegan */
+}
+        
+.hero h1 {
+    font-family: 'Syne', sans-serif;
+    font-size: clamp(2.5rem, 8vw, 4.5rem);
+    background: linear-gradient(90deg, #a855f7, #3b82f6);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    margin-bottom: 1.5rem;
+    font-weight: 800;
+}
+
+.hero p {
+    color: #94a3b8;
+    font-size: 1.2rem;
+    max-width: 600px;
+    line-height: 1.6;
+}
 
         .hero-content {
             display: grid;
@@ -416,9 +440,8 @@
 
     <div class="container">
         <section class="hero" id="beranda">
-            <div class="hero-content">
-                <div class="hero-text">
-                    <h1>Mengubah Ide Menjadi <span class="gradient-text">Visual Menarik</span></h1>
+            <div data-aos="fade-up" data-aos-duration="1000">                
+                   <h1>Mengubah Ide Menjadi <span class="gradient-text">Visual Menarik</span></h1>
                     <p>Saya menyediakan berbagai jasa kreatif digital untuk membantu brand, cerita, dan produk Anda tampil lebih menonjol di era digital.</p>
                     <div class="hero-buttons">
                         <a href="#jasa" class="btn btn-primary">Lihat Jasa Saya</a>
